@@ -17,7 +17,7 @@ static const CGFloat ButtonFontSelectedSize = 18.0f;
 //顶部ScrollView高度
 static const CGFloat TopScrollViewHeight = 40.0f;
 
-@interface XLSlideSwitch ()
+@interface XLSlideSwitch ()<UIScrollViewDelegate>
 {
     //界面滑动的ScrollView
     UIScrollView *_mainScrollView;
@@ -30,6 +30,8 @@ static const CGFloat TopScrollViewHeight = 40.0f;
     NSMutableArray *_buttons;
     //存放view
     NSMutableArray *_views;
+    //显示在navbar上
+    BOOL _showInNavBar;
 }
 @end
 
@@ -70,6 +72,7 @@ static const CGFloat TopScrollViewHeight = 40.0f;
     
     //防止navigationbar对ScrollView的布局产生影响
     [self addSubview:[UIView new]];
+    
     //创建顶部ScrollView
     _topScrollView = [UIScrollView new];
     _topScrollView.showsHorizontalScrollIndicator = NO;
@@ -94,6 +97,7 @@ static const CGFloat TopScrollViewHeight = 40.0f;
     _shadowImageView = [[UIImageView alloc] init];
     _shadowImageView.backgroundColor = _btnSelectedColor;
     [_topScrollView addSubview:_shadowImageView];
+    
 }
 
 #pragma mark -
@@ -104,21 +108,33 @@ static const CGFloat TopScrollViewHeight = 40.0f;
 {
     [super layoutSubviews];
     
-    _topScrollView.frame = CGRectMake(0, 0, self.bounds.size.width,TopScrollViewHeight);
+    //上半部分
+    if (!_showInNavBar){
+        _topScrollView.frame = CGRectMake(0, 0, self.bounds.size.width,TopScrollViewHeight);
+    }
+    [self updateButtons];
     
+    [self updateShadowViewFrame];
+    
+    _shadowImageView.hidden = _hideShadow;
+    
+    //分割线
+    _lineView.frame = CGRectMake(0, _topScrollView.bounds.size.height, self.bounds.size.width, 0.5);
+    if (_showInNavBar) {
+        _lineView.hidden = true;
+    }
+    
+    //下半部分
     _mainScrollView.frame = CGRectMake(0, TopScrollViewHeight, self.bounds.size.width, self.bounds.size.height - TopScrollViewHeight);
+    if (_showInNavBar) {
+        _mainScrollView.frame = self.bounds;
+    }
     _mainScrollView.contentSize = CGSizeMake(self.bounds.size.width * [_viewControllers count], 0);
     //分配子view的frame
     for (NSInteger i = 0; i<_views.count; i++) {
         UIView *view = _views[i];
         view.frame = CGRectMake(i*_mainScrollView.bounds.size.width, 0, _mainScrollView.bounds.size.width, _mainScrollView.bounds.size.height);
     }
-    
-    _lineView.frame = CGRectMake(0, _topScrollView.bounds.size.height, self.bounds.size.width, 0.5);
-    
-    [self updateButtons];
-    
-    [self updateShadowViewFrame];
 }
 
 -(void)updateButtons
@@ -128,6 +144,8 @@ static const CGFloat TopScrollViewHeight = 40.0f;
         UIButton *button = _buttons[i];
         CGSize textSize = [self buttonSizeOfTitle:button.currentTitle];
         button.frame = CGRectMake(btnXOffset, 0, textSize.width, _topScrollView.bounds.size.height);
+        [button setTitleColor:_btnNormalColor forState:UIControlStateNormal];
+        [button setTitleColor:_btnSelectedColor forState:UIControlStateSelected];
         btnXOffset += textSize.width + ButtonMargin;
         if (i == _selectedIndex) {
             button.titleLabel.font = [UIFont systemFontOfSize:ButtonFontSelectedSize];
@@ -137,6 +155,7 @@ static const CGFloat TopScrollViewHeight = 40.0f;
             button.selected = false;
         }
     }
+    
     //如果需要平分宽度的话，重新设置范围
     if (_adjustBtnSize2Screen) {
         for (NSInteger i = 0; i<_buttons.count; i++) {
@@ -158,32 +177,11 @@ static const CGFloat TopScrollViewHeight = 40.0f;
     UIButton *button = _buttons[_selectedIndex];
     _shadowImageView.frame = CGRectMake(button.frame.origin.x, CGRectGetMaxY(button.frame) - 1.5,button.bounds.size.width,1.5);
     _shadowImageView.center = CGPointMake(button.center.x, _shadowImageView.center.y);
+    _shadowImageView.backgroundColor = _btnSelectedColor;
 }
 
 #pragma mark -
 #pragma mark Setter方法
-
--(void)setBtnNormalColor:(UIColor *)btnNormalColor
-{
-    _btnNormalColor = btnNormalColor;
-    if (_buttons.count > 0) {
-        for (UIButton *button in _buttons) {
-            [button setTitleColor:btnNormalColor forState:UIControlStateNormal];
-        }
-    }
-}
-
--(void)setBtnSelectedColor:(UIColor *)btnSelectedColor
-{
-    _btnSelectedColor = btnSelectedColor;
-    if (_buttons.count > 0) {
-        for (UIButton *button in _buttons) {
-            [button setTitleColor:btnSelectedColor forState:UIControlStateSelected];
-        }
-    }
-    _shadowImageView.backgroundColor = _btnSelectedColor;
-}
-
 //设置要显示的视图控制器
 -(void)setViewControllers:(NSMutableArray *)viewControllers
 {
@@ -326,6 +324,16 @@ static const CGFloat TopScrollViewHeight = 40.0f;
                                        attributes:attributes
                                           context:nil].size;
     return textSize;
+}
+
+#pragma mark -
+#pragma mark 功能方法
+-(void)showsInNavBarOf:(UIViewController *)vc
+{
+    _showInNavBar = true;
+    _topScrollView.frame = CGRectMake(0, 0, self.bounds.size.width,TopScrollViewHeight);
+    vc.navigationItem.titleView = _topScrollView;
+    _topScrollView.backgroundColor = [UIColor clearColor];
 }
 
 @end

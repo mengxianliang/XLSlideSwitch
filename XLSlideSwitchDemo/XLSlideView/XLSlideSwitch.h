@@ -23,6 +23,10 @@
  */
 @property (strong,nonatomic) NSMutableArray *viewControllers;
 /**
+ 是否隐藏选中效果
+ */
+@property (assign,nonatomic) BOOL hideShadow;
+/**
  当前选中位置
  */
 @property (assign,nonatomic) NSInteger selectedIndex;
@@ -38,5 +42,10 @@
  是否需要自动分配按钮宽度
  */
 @property (assign,nonatomic) BOOL adjustBtnSize2Screen;
+
+/**
+ 显示在某个VC的navbar上
+ */
+-(void)showsInNavBarOf:(UIViewController *)vc;
 
 @end

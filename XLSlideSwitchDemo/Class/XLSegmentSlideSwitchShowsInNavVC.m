@@ -1,22 +1,23 @@
 //
-//  XLSegmentSlideSwitchViewController.m
+//  XLSegmentSlideSwitchShowsInNavVC.m
 //  XLSlideSwitchDemo
 //
 //  Created by Apple on 2017/1/9.
 //  Copyright © 2017年 Apple. All rights reserved.
 //
 
-#import "XLSegmentSlideSwitchVC.h"
+#import "XLSegmentSlideSwitchShowsInNavVC.h"
 #import "TestViewController.h"
 #import "XLSegmentSlideSwitch.h"
 
-@interface XLSegmentSlideSwitchVC ()<XLSlideSwitchDelegate>
+@interface XLSegmentSlideSwitchShowsInNavVC ()<XLSlideSwitchDelegate>
 {
     XLSegmentSlideSwitch *_slideSwitch;
 }
 @end
 
-@implementation XLSegmentSlideSwitchVC
+@implementation XLSegmentSlideSwitchShowsInNavVC
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -38,6 +39,7 @@
     _slideSwitch.delegate = self;
     _slideSwitch.tintColor = RGB(212, 61, 61);
     _slideSwitch.viewControllers = viewControllers;
+    [_slideSwitch showsInNavBarOf:self];
     [self.view addSubview:_slideSwitch];
 }
 

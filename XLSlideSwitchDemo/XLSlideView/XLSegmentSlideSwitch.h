@@ -31,4 +31,9 @@
  */
 @property (strong,nonatomic) UIColor *tintColor;
 
+/**
+ 显示在某个VC的navbar上
+ */
+-(void)showsInNavBarOf:(UIViewController *)vc;
+
 @end

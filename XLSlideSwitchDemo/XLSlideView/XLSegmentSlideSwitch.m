@@ -18,6 +18,9 @@ static const CGFloat TopViewHeight = 40.0f;
     UIView *_lineView;
     //存放view
     NSMutableArray *_views;
+    
+    //显示在navbar上
+    BOOL _showInNavBar;
 }
 @end
 
@@ -92,31 +95,38 @@ static const CGFloat TopViewHeight = 40.0f;
 {
     [super layoutSubviews];
     
-    CGFloat segmentMargin = 5.0f;
-    _segmentedControl.frame = CGRectMake(segmentMargin, segmentMargin, self.bounds.size.width - 2*segmentMargin,TopViewHeight - 2*segmentMargin);
     
+    //上半部分
+    if (!_showInNavBar) {
+        CGFloat segmentMargin = 5.0f;
+        _segmentedControl.frame = CGRectMake(segmentMargin, segmentMargin, self.bounds.size.width - 2*segmentMargin,TopViewHeight - 2*segmentMargin);
+    }
+    _segmentedControl.tintColor = _tintColor;
+    
+    
+    //分割线
+    _lineView.frame = CGRectMake(0, TopViewHeight, self.bounds.size.width, 0.5);
+    if (_showInNavBar) {
+        _lineView.hidden = true;
+    }
+
+    
+    //下半部分
     _mainScrollView.frame = CGRectMake(0, TopViewHeight, self.bounds.size.width, self.bounds.size.height - TopViewHeight);
+    if (_showInNavBar) {
+        _mainScrollView.frame = self.bounds;
+    }
     _mainScrollView.contentSize = CGSizeMake(self.bounds.size.width * [_viewControllers count], 0);
     //分配子view的frame
     for (NSInteger i = 0; i<_views.count; i++) {
         UIView *view = _views[i];
         view.frame = CGRectMake(i*_mainScrollView.bounds.size.width, 0, _mainScrollView.bounds.size.width, _mainScrollView.bounds.size.height);
     }
-    
-    _lineView.frame = CGRectMake(0, TopViewHeight, self.bounds.size.width, 0.5);
 }
 
 
 #pragma mark -
 #pragma mark Setters
-
--(void)setTintColor:(UIColor *)tintColor
-{
-    _tintColor = tintColor;
-    if (_segmentedControl) {
-        _segmentedControl.tintColor = tintColor;
-    }
-}
 
 //设置要显示的视图控制器
 -(void)setViewControllers:(NSMutableArray *)viewControllers
@@ -199,6 +209,16 @@ static const CGFloat TopViewHeight = 40.0f;
             [_delegate slideSwitchPanRightEdge:panParam];
         }
     }
+}
+
+#pragma mark -
+#pragma mark 功能方法
+-(void)showsInNavBarOf:(UIViewController *)vc
+{
+    _showInNavBar = true;
+    CGFloat segmentMargin = 5.0f;
+    _segmentedControl.frame = CGRectMake(segmentMargin, segmentMargin, self.bounds.size.width - 2*segmentMargin,TopViewHeight - 2*segmentMargin);
+    vc.navigationItem.titleView = _segmentedControl;
 }
 
 @end

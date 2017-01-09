@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1862B3BF1E23907B00B9BD17 /* XLSegmentSlideSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 1862B3BE1E23907B00B9BD17 /* XLSegmentSlideSwitch.m */; };
 		1862B3C31E23928D00B9BD17 /* XLSegmentSlideSwitchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1862B3C21E23928D00B9BD17 /* XLSegmentSlideSwitchVC.m */; };
+		1862B3C61E23C4CA00B9BD17 /* XLSlideSwitchShowsInNavVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1862B3C51E23C4CA00B9BD17 /* XLSlideSwitchShowsInNavVC.m */; };
+		1862B3C91E23CE3200B9BD17 /* XLSegmentSlideSwitchShowsInNavVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1862B3C81E23CE3200B9BD17 /* XLSegmentSlideSwitchShowsInNavVC.m */; };
 		18760BF01E1CAAA800007F02 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18760BEF1E1CAAA800007F02 /* main.m */; };
 		18760BF31E1CAAA800007F02 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18760BF21E1CAAA800007F02 /* AppDelegate.m */; };
 		18760BF61E1CAAA800007F02 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18760BF51E1CAAA800007F02 /* ViewController.m */; };
@@ -26,6 +28,10 @@
 		1862B3C01E2391A900B9BD17 /* XLSlideSwitchDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLSlideSwitchDelegate.h; sourceTree = "<group>"; };
 		1862B3C11E23928D00B9BD17 /* XLSegmentSlideSwitchVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLSegmentSlideSwitchVC.h; sourceTree = "<group>"; };
 		1862B3C21E23928D00B9BD17 /* XLSegmentSlideSwitchVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLSegmentSlideSwitchVC.m; sourceTree = "<group>"; };
+		1862B3C41E23C4CA00B9BD17 /* XLSlideSwitchShowsInNavVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLSlideSwitchShowsInNavVC.h; sourceTree = "<group>"; };
+		1862B3C51E23C4CA00B9BD17 /* XLSlideSwitchShowsInNavVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLSlideSwitchShowsInNavVC.m; sourceTree = "<group>"; };
+		1862B3C71E23CE3200B9BD17 /* XLSegmentSlideSwitchShowsInNavVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLSegmentSlideSwitchShowsInNavVC.h; sourceTree = "<group>"; };
+		1862B3C81E23CE3200B9BD17 /* XLSegmentSlideSwitchShowsInNavVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLSegmentSlideSwitchShowsInNavVC.m; sourceTree = "<group>"; };
 		18760BEB1E1CAAA800007F02 /* XLSlideSwitchDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XLSlideSwitchDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18760BEF1E1CAAA800007F02 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		18760BF11E1CAAA800007F02 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -118,6 +124,10 @@
 				18760C0D1E1CC94000007F02 /* XLSlideSwitchVC.m */,
 				1862B3C11E23928D00B9BD17 /* XLSegmentSlideSwitchVC.h */,
 				1862B3C21E23928D00B9BD17 /* XLSegmentSlideSwitchVC.m */,
+				1862B3C41E23C4CA00B9BD17 /* XLSlideSwitchShowsInNavVC.h */,
+				1862B3C51E23C4CA00B9BD17 /* XLSlideSwitchShowsInNavVC.m */,
+				1862B3C71E23CE3200B9BD17 /* XLSegmentSlideSwitchShowsInNavVC.h */,
+				1862B3C81E23CE3200B9BD17 /* XLSegmentSlideSwitchShowsInNavVC.m */,
 				18760C0F1E1CD27C00007F02 /* TestViewController.h */,
 				18760C101E1CD27C00007F02 /* TestViewController.m */,
 			);
@@ -196,10 +206,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1862B3C31E23928D00B9BD17 /* XLSegmentSlideSwitchVC.m in Sources */,
+				1862B3C61E23C4CA00B9BD17 /* XLSlideSwitchShowsInNavVC.m in Sources */,
 				18760C111E1CD27C00007F02 /* TestViewController.m in Sources */,
 				18760BF61E1CAAA800007F02 /* ViewController.m in Sources */,
 				18760C081E1CAABA00007F02 /* XLSlideSwitch.m in Sources */,
 				1862B3BF1E23907B00B9BD17 /* XLSegmentSlideSwitch.m in Sources */,
+				1862B3C91E23CE3200B9BD17 /* XLSegmentSlideSwitchShowsInNavVC.m in Sources */,
 				18760BF31E1CAAA800007F02 /* AppDelegate.m in Sources */,
 				18760C0E1E1CC94000007F02 /* XLSlideSwitchVC.m in Sources */,
 				18760BF01E1CAAA800007F02 /* main.m in Sources */,
