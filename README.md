@@ -2,23 +2,12 @@
  <br>
 ## 显示效果如下
  <br>
- ![image](https://github.com/mengxianliang/XLSlideSwitch/blob/master/GIF/1.gif)
- ![image](https://github.com/mengxianliang/XLSlideSwitch/blob/master/GIF/2.gif)
- ![image](https://github.com/mengxianliang/XLSlideSwitch/blob/master/GIF/3.gif)
-
-表格
+显示效果
 --------
-
-表头1  | 表头2
---------- | --------
-表格单元  | 表格单元 
-表格单元  | 表格单元 
-
-| 图片 | 描述 |
+| 样式 | 示例 |
 | ---- | ---- |
-|![image](https://github.com/mengxianliang/XLSlideSwitch/blob/master/GIF/3.gif)| 百度
-
+|标准样式| ![image](https://github.com/mengxianliang/XLSlideSwitch/blob/master/GIF/1.gif)|
+|按钮居中| ![image](https://github.com/mengxianliang/XLSlideSwitch/blob/master/GIF/2.gif)|
+|Segmented样式| ![image](https://github.com/mengxianliang/XLSlideSwitch/blob/master/GIF/3.gif)|
 <br>
 ## 实现原理请参考[我的博文](http://blog.csdn.net/u013282507/article/details/54022276)
-
-
