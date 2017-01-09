@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XLSegmentSlideSwitchViewController : UIViewController
+@interface XLSegmentSlideSwitchVC : UIViewController
 
 @end

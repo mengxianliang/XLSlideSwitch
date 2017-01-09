@@ -7,8 +7,8 @@
 //
 
 #import "ViewController.h"
-#import "XLSlideSwitchViewController.h"
-#import "XLSegmentSlideSwitchViewController.h"
+#import "XLSlideSwitchVC.h"
+#import "XLSegmentSlideSwitchVC.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -45,7 +45,7 @@
 
 -(NSArray *)titles
 {
-    return @[@"XLSlideSwitch",@"XLSlideSwitch+AdjustScreen",@"XLSegmentSlideSwitch"];
+    return @[@"XLSlideSwitch",@"XLSlideSwitch+AdjustScreenWidth",@"XLSegmentSlideSwitch"];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -74,14 +74,14 @@
     switch (indexPath.row) {
         case 0:
         {
-            XLSlideSwitchViewController *vc = [XLSlideSwitchViewController new];
+            XLSlideSwitchVC *vc = [XLSlideSwitchVC new];
             vc.title = [self titles][indexPath.row];
             [self.navigationController pushViewController:vc animated:true];
         }
             break;
         case 1:
         {
-            XLSlideSwitchViewController *vc = [XLSlideSwitchViewController new];
+            XLSlideSwitchVC *vc = [XLSlideSwitchVC new];
             vc.title = [self titles][indexPath.row];
             vc.adjustScreen = true;
             [self.navigationController pushViewController:vc animated:true];
@@ -89,7 +89,7 @@
             break;
         case 2:
         {
-            XLSegmentSlideSwitchViewController *vc = [XLSegmentSlideSwitchViewController new];
+            XLSegmentSlideSwitchVC *vc = [XLSegmentSlideSwitchVC new];
             vc.title = [self titles][indexPath.row];
             [self.navigationController pushViewController:vc animated:true];
         }
