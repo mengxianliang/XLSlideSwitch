@@ -2,6 +2,7 @@
 
 ###显示效果
  <br>
+ --------------
 | 样式 | 示例 |
 | ---- | ---- |
 |标准样式| ![image](https://github.com/mengxianliang/XLSlideSwitch/blob/master/GIF/1.gif)|
