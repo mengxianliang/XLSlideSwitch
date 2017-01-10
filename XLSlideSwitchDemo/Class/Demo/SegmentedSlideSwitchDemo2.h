@@ -1,5 +1,5 @@
 //
-//  XLSegmentSlideSwitchViewController.h
+//  XLSegmentSlideSwitchShowsInNavVC.h
 //  XLSlideSwitchDemo
 //
 //  Created by Apple on 2017/1/9.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XLSegmentSlideSwitchVC : UIViewController
+@interface SegmentedSlideSwitchDemo2 : UIViewController
 
 @end

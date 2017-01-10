@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XLSlideSwitchVC : UIViewController
+@interface SlideSwitchDemo1 : UIViewController
 
 @property (assign,nonatomic) BOOL adjustScreen;
 

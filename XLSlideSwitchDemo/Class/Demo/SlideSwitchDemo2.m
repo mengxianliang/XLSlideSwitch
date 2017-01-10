@@ -6,17 +6,17 @@
 //  Copyright © 2017年 Apple. All rights reserved.
 //
 
-#import "XLSlideSwitchShowsInNavVC.h"
+#import "SlideSwitchDemo2.h"
 #import "TestViewController.h"
 #import "XLSlideSwitch.h"
 
-@interface XLSlideSwitchShowsInNavVC ()<XLSlideSwitchDelegate>
+@interface SlideSwitchDemo2 ()<XLSlideSwitchDelegate>
 {
     XLSlideSwitch *_slideSwitch;
 }
 @end
 
-@implementation XLSlideSwitchShowsInNavVC
+@implementation SlideSwitchDemo2
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -38,9 +38,8 @@
     _slideSwitch = [XLSlideSwitch new];
     _slideSwitch.frame = CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 64);
     _slideSwitch.delegate = self;
-    _slideSwitch.btnSelectedColor = RGB(212, 61, 61);
-    _slideSwitch.btnNormalColor = RGB(34, 34, 34);
-    //    _slideSwitch.adjustBtnSize2Screen = true;
+    _slideSwitch.btnSelectedColor = RedColor;
+    _slideSwitch.btnNormalColor = GrayColor;
     _slideSwitch.viewControllers = viewControllers;
     _slideSwitch.hideShadow = true;
     [_slideSwitch showsInNavBarOf:self];

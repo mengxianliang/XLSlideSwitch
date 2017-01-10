@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XLSlideSwitchShowsInNavVC : UIViewController
+@interface SlideSwitchDemo2 : UIViewController
 
 @end

@@ -1,22 +1,22 @@
 //
-//  XLSegmentSlideSwitchShowsInNavVC.m
+//  XLSlideSwitchViewController.m
 //  XLSlideSwitchDemo
 //
-//  Created by Apple on 2017/1/9.
+//  Created by Apple on 2017/1/4.
 //  Copyright © 2017年 Apple. All rights reserved.
 //
 
-#import "XLSegmentSlideSwitchShowsInNavVC.h"
+#import "SlideSwitchDemo1.h"
 #import "TestViewController.h"
-#import "XLSegmentSlideSwitch.h"
+#import "XLSlideSwitch.h"
 
-@interface XLSegmentSlideSwitchShowsInNavVC ()<XLSlideSwitchDelegate>
+@interface SlideSwitchDemo1 ()<XLSlideSwitchDelegate>
 {
-    XLSegmentSlideSwitch *_slideSwitch;
+    XLSlideSwitch *_slideSwitch;
 }
 @end
 
-@implementation XLSegmentSlideSwitchShowsInNavVC
+@implementation SlideSwitchDemo1
 
 
 - (void)viewDidLoad {
@@ -29,17 +29,22 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     NSMutableArray *viewControllers = [NSMutableArray new];
-    NSArray *titles = @[@"今天",@"是个",@"好日子"];
+    NSArray *titles = @[@"今天",@"是个",@"好日子",@"心想的",@"事儿",@"都能成",@"明天",@"是个",@"好日子",@"打开了家门",@"咱迎春风",@"~~~"];
+    if (_adjustScreen) {
+        titles = @[@"今天",@"是个",@"好日子"];
+    }
     for (int i = 0 ; i<titles.count; i++) {
         TestViewController *vc = [TestViewController new];
         vc.title = titles[i];
         [viewControllers addObject:vc];
     }
-    _slideSwitch = [[XLSegmentSlideSwitch alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 64)];
+    _slideSwitch = [[XLSlideSwitch alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 64)];
     _slideSwitch.delegate = self;
-    _slideSwitch.tintColor = RGB(212, 61, 61);
+    _slideSwitch.btnSelectedColor = RedColor;
+    _slideSwitch.btnNormalColor = GrayColor;
+//    _slideSwitch.adjustBtnSize2Screen = true;
     _slideSwitch.viewControllers = viewControllers;
-    [_slideSwitch showsInNavBarOf:self];
+    _slideSwitch.adjustBtnSize2Screen = _adjustScreen;
     [self.view addSubview:_slideSwitch];
 }
 

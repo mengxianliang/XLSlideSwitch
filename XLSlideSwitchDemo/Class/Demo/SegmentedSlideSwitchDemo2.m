@@ -1,22 +1,22 @@
 //
-//  XLSegmentSlideSwitchViewController.m
+//  XLSegmentSlideSwitchShowsInNavVC.m
 //  XLSlideSwitchDemo
 //
 //  Created by Apple on 2017/1/9.
 //  Copyright © 2017年 Apple. All rights reserved.
 //
 
-#import "XLSegmentSlideSwitchVC.h"
+#import "SegmentedSlideSwitchDemo2.h"
 #import "TestViewController.h"
-#import "XLSegmentSlideSwitch.h"
+#import "XLSegmentedSlideSwitch.h"
 
-@interface XLSegmentSlideSwitchVC ()<XLSlideSwitchDelegate>
+@interface SegmentedSlideSwitchDemo2 ()<XLSlideSwitchDelegate>
 {
-    XLSegmentSlideSwitch *_slideSwitch;
+    XLSegmentedSlideSwitch *_slideSwitch;
 }
 @end
 
-@implementation XLSegmentSlideSwitchVC
+@implementation SegmentedSlideSwitchDemo2
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,10 +34,11 @@
         vc.title = titles[i];
         [viewControllers addObject:vc];
     }
-    _slideSwitch = [[XLSegmentSlideSwitch alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 64)];
+    _slideSwitch = [[XLSegmentedSlideSwitch alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 64)];
     _slideSwitch.delegate = self;
-    _slideSwitch.tintColor = RGB(212, 61, 61);
+    _slideSwitch.tintColor = RedColor;
     _slideSwitch.viewControllers = viewControllers;
+    [_slideSwitch showsInNavBarOf:self];
     [self.view addSubview:_slideSwitch];
 }
 

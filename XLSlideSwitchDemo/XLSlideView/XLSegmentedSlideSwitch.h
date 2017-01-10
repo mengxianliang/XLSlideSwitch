@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "XLSlideSwitchDelegate.h"
 
-@interface XLSegmentSlideSwitch : UIView
+@interface XLSegmentedSlideSwitch : UIView
 /**
  代理
  */

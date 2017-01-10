@@ -6,11 +6,11 @@
 //  Copyright © 2017年 Apple. All rights reserved.
 //
 
-#import "XLSegmentSlideSwitch.h"
+#import "XLSegmentedSlideSwitch.h"
 //顶部ScrollView高度
 static const CGFloat TopViewHeight = 40.0f;
 
-@interface XLSegmentSlideSwitch ()<UIScrollViewDelegate>
+@interface XLSegmentedSlideSwitch ()<UIScrollViewDelegate>
 {
     //界面滑动的ScrollView
     UIScrollView *_mainScrollView;
@@ -24,7 +24,7 @@ static const CGFloat TopViewHeight = 40.0f;
 }
 @end
 
-@implementation XLSegmentSlideSwitch
+@implementation XLSegmentedSlideSwitch
 
 #pragma mark -
 #pragma mark 初始化方法

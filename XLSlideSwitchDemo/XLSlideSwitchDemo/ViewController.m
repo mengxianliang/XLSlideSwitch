@@ -7,10 +7,11 @@
 //
 
 #import "ViewController.h"
-#import "XLSlideSwitchVC.h"
-#import "XLSegmentSlideSwitchVC.h"
-#import "XLSlideSwitchShowsInNavVC.h"
-#import "XLSegmentSlideSwitchShowsInNavVC.h"
+#import "SlideSwitchDemo1.h"
+#import "SlideSwitchDemo2.h"
+
+#import "SegmentedslideSwitchDemo1.h"
+#import "SegmentedSlideSwitchDemo2.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -45,19 +46,41 @@
 #pragma mark -
 #pragma mark TableViewDelegate&DataSource
 
+
 -(NSArray *)titles
 {
-    return @[@"XLSlideSwitch",@"XLSlideSwitch+AdjustScreenWidth",@"XLSegmentSlideSwitch",@"XLSlideSwitchShowsInNav",@"XLSegmentSlideSwitchShowsInNavVC"];
+    return @[@[@"SlideSwitchDemo1",@"SlideSwitchDemo2",@"SlideSwitchDemo3",],@[@"SegmentedSlideSwitchDemo1",@"SegmentedSlideSwitchDemo2"]];
+}
+
+-(NSArray *)subTitles
+{
+    return @[@[@"SlideSwitchNormal",@"SlideSwitch+AdjustScreenWidth",@"SlideSwitch+ShowInNavigationBar",],@[@"SegmentedSlideSwitchNormal",@"SegmentedSlideSwitchShowInNavigationBar"]];
+}
+
+-(NSArray*)sectionTitles
+{
+    return @[@"XLSlideSiwtch",@"XLSegmentedSlideSiwtch"];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 50;
+    return 55;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self titles].count;
+    NSArray *arr = [self titles][section];
+    return arr.count;
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return [self sectionTitles][section];
+}
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return [self sectionTitles].count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -65,54 +88,65 @@
     NSString* cellIdentifier = @"cell";
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+        cell.textLabel.textColor = RedColor;
+        cell.detailTextLabel.textColor = GrayColor;
     }
-    cell.textLabel.text = [self titles][indexPath.row];
+    cell.textLabel.text = [self titles][indexPath.section][indexPath.row];
+    cell.detailTextLabel.text = [self subTitles][indexPath.section][indexPath.row];
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    switch (indexPath.row) {
-        case 0:
-        {
-            XLSlideSwitchVC *vc = [XLSlideSwitchVC new];
-            vc.title = [self titles][indexPath.row];
-            [self.navigationController pushViewController:vc animated:true];
+    NSString *title = [self titles][indexPath.section][indexPath.row];
+    if (indexPath.section == 0) {
+        switch (indexPath.row) {
+            case 0:
+            {
+                SlideSwitchDemo1 *vc = [SlideSwitchDemo1 new];
+                vc.title = title;
+                [self.navigationController pushViewController:vc animated:true];
+            }
+                break;
+            case 1:
+            {
+                SlideSwitchDemo1 *vc = [SlideSwitchDemo1 new];
+                vc.title = title;
+                vc.adjustScreen = true;
+                [self.navigationController pushViewController:vc animated:true];
+            }
+                break;
+            case 2:
+            {
+                SlideSwitchDemo2 *vc = [SlideSwitchDemo2 new];
+                vc.title = title;
+                [self.navigationController pushViewController:vc animated:true];
+            }
+                break;
+                
+            default:
+                break;
         }
-            break;
-        case 1:
-        {
-            XLSlideSwitchVC *vc = [XLSlideSwitchVC new];
-            vc.title = [self titles][indexPath.row];
-            vc.adjustScreen = true;
-            [self.navigationController pushViewController:vc animated:true];
+    }else{
+        switch (indexPath.row) {
+            case 0:
+            {
+                SegmentedSlideSwitchDemo1 *vc = [SegmentedSlideSwitchDemo1 new];
+                vc.title = title;
+                [self.navigationController pushViewController:vc animated:true];
+            }
+                break;
+            case 1:
+            {
+                SegmentedSlideSwitchDemo2 *vc = [SegmentedSlideSwitchDemo2 new];
+                vc.title = title;
+                [self.navigationController pushViewController:vc animated:true];
+            }
+                break;
+            default:
+                break;
         }
-            break;
-        case 2:
-        {
-            XLSegmentSlideSwitchVC *vc = [XLSegmentSlideSwitchVC new];
-            vc.title = [self titles][indexPath.row];
-            [self.navigationController pushViewController:vc animated:true];
-        }
-            break;
-        case 3:
-        {
-            XLSlideSwitchShowsInNavVC *vc = [XLSlideSwitchShowsInNavVC new];
-            vc.title = [self titles][indexPath.row];
-            [self.navigationController pushViewController:vc animated:true];
-        }
-            break;
-        case 4:
-        {
-            XLSegmentSlideSwitchShowsInNavVC *vc = [XLSegmentSlideSwitchShowsInNavVC new];
-            vc.title = [self titles][indexPath.row];
-            [self.navigationController pushViewController:vc animated:true];
-        }
-            break;
-
-        default:
-            break;
     }
 }
 

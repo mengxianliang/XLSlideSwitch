@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1862B3BF1E23907B00B9BD17 /* XLSegmentSlideSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 1862B3BE1E23907B00B9BD17 /* XLSegmentSlideSwitch.m */; };
-		1862B3C31E23928D00B9BD17 /* XLSegmentSlideSwitchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1862B3C21E23928D00B9BD17 /* XLSegmentSlideSwitchVC.m */; };
-		1862B3C61E23C4CA00B9BD17 /* XLSlideSwitchShowsInNavVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1862B3C51E23C4CA00B9BD17 /* XLSlideSwitchShowsInNavVC.m */; };
-		1862B3C91E23CE3200B9BD17 /* XLSegmentSlideSwitchShowsInNavVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1862B3C81E23CE3200B9BD17 /* XLSegmentSlideSwitchShowsInNavVC.m */; };
+		1854EEEA1E24D57E0051AB8D /* SegmentedSlideSwitchDemo1.m in Sources */ = {isa = PBXBuildFile; fileRef = 1854EEE01E24D57E0051AB8D /* SegmentedSlideSwitchDemo1.m */; };
+		1854EEEB1E24D57E0051AB8D /* SegmentedSlideSwitchDemo2.m in Sources */ = {isa = PBXBuildFile; fileRef = 1854EEE21E24D57E0051AB8D /* SegmentedSlideSwitchDemo2.m */; };
+		1854EEEC1E24D57E0051AB8D /* SlideSwitchDemo1.m in Sources */ = {isa = PBXBuildFile; fileRef = 1854EEE41E24D57E0051AB8D /* SlideSwitchDemo1.m */; };
+		1854EEED1E24D57E0051AB8D /* SlideSwitchDemo2.m in Sources */ = {isa = PBXBuildFile; fileRef = 1854EEE61E24D57E0051AB8D /* SlideSwitchDemo2.m */; };
+		1854EEEE1E24D57E0051AB8D /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1854EEE91E24D57E0051AB8D /* TestViewController.m */; };
+		1862B3BF1E23907B00B9BD17 /* XLSegmentedSlideSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 1862B3BE1E23907B00B9BD17 /* XLSegmentedSlideSwitch.m */; };
 		18760BF01E1CAAA800007F02 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18760BEF1E1CAAA800007F02 /* main.m */; };
 		18760BF31E1CAAA800007F02 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18760BF21E1CAAA800007F02 /* AppDelegate.m */; };
 		18760BF61E1CAAA800007F02 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18760BF51E1CAAA800007F02 /* ViewController.m */; };
@@ -18,20 +20,22 @@
 		18760BFB1E1CAAA800007F02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18760BFA1E1CAAA800007F02 /* Assets.xcassets */; };
 		18760BFE1E1CAAA800007F02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18760BFC1E1CAAA800007F02 /* LaunchScreen.storyboard */; };
 		18760C081E1CAABA00007F02 /* XLSlideSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 18760C071E1CAABA00007F02 /* XLSlideSwitch.m */; };
-		18760C0E1E1CC94000007F02 /* XLSlideSwitchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 18760C0D1E1CC94000007F02 /* XLSlideSwitchVC.m */; };
-		18760C111E1CD27C00007F02 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18760C101E1CD27C00007F02 /* TestViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1862B3BD1E23907B00B9BD17 /* XLSegmentSlideSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLSegmentSlideSwitch.h; sourceTree = "<group>"; };
-		1862B3BE1E23907B00B9BD17 /* XLSegmentSlideSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLSegmentSlideSwitch.m; sourceTree = "<group>"; };
+		1854EEDF1E24D57E0051AB8D /* SegmentedSlideSwitchDemo1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentedSlideSwitchDemo1.h; sourceTree = "<group>"; };
+		1854EEE01E24D57E0051AB8D /* SegmentedSlideSwitchDemo1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentedSlideSwitchDemo1.m; sourceTree = "<group>"; };
+		1854EEE11E24D57E0051AB8D /* SegmentedSlideSwitchDemo2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentedSlideSwitchDemo2.h; sourceTree = "<group>"; };
+		1854EEE21E24D57E0051AB8D /* SegmentedSlideSwitchDemo2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentedSlideSwitchDemo2.m; sourceTree = "<group>"; };
+		1854EEE31E24D57E0051AB8D /* SlideSwitchDemo1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideSwitchDemo1.h; sourceTree = "<group>"; };
+		1854EEE41E24D57E0051AB8D /* SlideSwitchDemo1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideSwitchDemo1.m; sourceTree = "<group>"; };
+		1854EEE51E24D57E0051AB8D /* SlideSwitchDemo2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideSwitchDemo2.h; sourceTree = "<group>"; };
+		1854EEE61E24D57E0051AB8D /* SlideSwitchDemo2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideSwitchDemo2.m; sourceTree = "<group>"; };
+		1854EEE81E24D57E0051AB8D /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		1854EEE91E24D57E0051AB8D /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		1862B3BD1E23907B00B9BD17 /* XLSegmentedSlideSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLSegmentedSlideSwitch.h; sourceTree = "<group>"; };
+		1862B3BE1E23907B00B9BD17 /* XLSegmentedSlideSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLSegmentedSlideSwitch.m; sourceTree = "<group>"; };
 		1862B3C01E2391A900B9BD17 /* XLSlideSwitchDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLSlideSwitchDelegate.h; sourceTree = "<group>"; };
-		1862B3C11E23928D00B9BD17 /* XLSegmentSlideSwitchVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLSegmentSlideSwitchVC.h; sourceTree = "<group>"; };
-		1862B3C21E23928D00B9BD17 /* XLSegmentSlideSwitchVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLSegmentSlideSwitchVC.m; sourceTree = "<group>"; };
-		1862B3C41E23C4CA00B9BD17 /* XLSlideSwitchShowsInNavVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLSlideSwitchShowsInNavVC.h; sourceTree = "<group>"; };
-		1862B3C51E23C4CA00B9BD17 /* XLSlideSwitchShowsInNavVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLSlideSwitchShowsInNavVC.m; sourceTree = "<group>"; };
-		1862B3C71E23CE3200B9BD17 /* XLSegmentSlideSwitchShowsInNavVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLSegmentSlideSwitchShowsInNavVC.h; sourceTree = "<group>"; };
-		1862B3C81E23CE3200B9BD17 /* XLSegmentSlideSwitchShowsInNavVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLSegmentSlideSwitchShowsInNavVC.m; sourceTree = "<group>"; };
 		18760BEB1E1CAAA800007F02 /* XLSlideSwitchDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XLSlideSwitchDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18760BEF1E1CAAA800007F02 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		18760BF11E1CAAA800007F02 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -45,10 +49,6 @@
 		18760C061E1CAABA00007F02 /* XLSlideSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLSlideSwitch.h; sourceTree = "<group>"; };
 		18760C071E1CAABA00007F02 /* XLSlideSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLSlideSwitch.m; sourceTree = "<group>"; };
 		18760C0A1E1CC81100007F02 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		18760C0C1E1CC94000007F02 /* XLSlideSwitchVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLSlideSwitchVC.h; sourceTree = "<group>"; };
-		18760C0D1E1CC94000007F02 /* XLSlideSwitchVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLSlideSwitchVC.m; sourceTree = "<group>"; };
-		18760C0F1E1CD27C00007F02 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
-		18760C101E1CD27C00007F02 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +62,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1854EEDE1E24D57E0051AB8D /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				1854EEE31E24D57E0051AB8D /* SlideSwitchDemo1.h */,
+				1854EEE41E24D57E0051AB8D /* SlideSwitchDemo1.m */,
+				1854EEE51E24D57E0051AB8D /* SlideSwitchDemo2.h */,
+				1854EEE61E24D57E0051AB8D /* SlideSwitchDemo2.m */,
+				1854EEDF1E24D57E0051AB8D /* SegmentedSlideSwitchDemo1.h */,
+				1854EEE01E24D57E0051AB8D /* SegmentedSlideSwitchDemo1.m */,
+				1854EEE11E24D57E0051AB8D /* SegmentedSlideSwitchDemo2.h */,
+				1854EEE21E24D57E0051AB8D /* SegmentedSlideSwitchDemo2.m */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		1854EEE71E24D57E0051AB8D /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				1854EEE81E24D57E0051AB8D /* TestViewController.h */,
+				1854EEE91E24D57E0051AB8D /* TestViewController.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
 		18760BE21E1CAAA800007F02 = {
 			isa = PBXGroup;
 			children = (
@@ -110,8 +134,8 @@
 			children = (
 				18760C061E1CAABA00007F02 /* XLSlideSwitch.h */,
 				18760C071E1CAABA00007F02 /* XLSlideSwitch.m */,
-				1862B3BD1E23907B00B9BD17 /* XLSegmentSlideSwitch.h */,
-				1862B3BE1E23907B00B9BD17 /* XLSegmentSlideSwitch.m */,
+				1862B3BD1E23907B00B9BD17 /* XLSegmentedSlideSwitch.h */,
+				1862B3BE1E23907B00B9BD17 /* XLSegmentedSlideSwitch.m */,
 				1862B3C01E2391A900B9BD17 /* XLSlideSwitchDelegate.h */,
 			);
 			path = XLSlideView;
@@ -120,16 +144,8 @@
 		18760C0B1E1CC92100007F02 /* Class */ = {
 			isa = PBXGroup;
 			children = (
-				18760C0C1E1CC94000007F02 /* XLSlideSwitchVC.h */,
-				18760C0D1E1CC94000007F02 /* XLSlideSwitchVC.m */,
-				1862B3C11E23928D00B9BD17 /* XLSegmentSlideSwitchVC.h */,
-				1862B3C21E23928D00B9BD17 /* XLSegmentSlideSwitchVC.m */,
-				1862B3C41E23C4CA00B9BD17 /* XLSlideSwitchShowsInNavVC.h */,
-				1862B3C51E23C4CA00B9BD17 /* XLSlideSwitchShowsInNavVC.m */,
-				1862B3C71E23CE3200B9BD17 /* XLSegmentSlideSwitchShowsInNavVC.h */,
-				1862B3C81E23CE3200B9BD17 /* XLSegmentSlideSwitchShowsInNavVC.m */,
-				18760C0F1E1CD27C00007F02 /* TestViewController.h */,
-				18760C101E1CD27C00007F02 /* TestViewController.m */,
+				1854EEDE1E24D57E0051AB8D /* Demo */,
+				1854EEE71E24D57E0051AB8D /* Other */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -205,16 +221,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1862B3C31E23928D00B9BD17 /* XLSegmentSlideSwitchVC.m in Sources */,
-				1862B3C61E23C4CA00B9BD17 /* XLSlideSwitchShowsInNavVC.m in Sources */,
-				18760C111E1CD27C00007F02 /* TestViewController.m in Sources */,
 				18760BF61E1CAAA800007F02 /* ViewController.m in Sources */,
 				18760C081E1CAABA00007F02 /* XLSlideSwitch.m in Sources */,
-				1862B3BF1E23907B00B9BD17 /* XLSegmentSlideSwitch.m in Sources */,
-				1862B3C91E23CE3200B9BD17 /* XLSegmentSlideSwitchShowsInNavVC.m in Sources */,
+				1862B3BF1E23907B00B9BD17 /* XLSegmentedSlideSwitch.m in Sources */,
+				1854EEEA1E24D57E0051AB8D /* SegmentedSlideSwitchDemo1.m in Sources */,
+				1854EEEE1E24D57E0051AB8D /* TestViewController.m in Sources */,
 				18760BF31E1CAAA800007F02 /* AppDelegate.m in Sources */,
-				18760C0E1E1CC94000007F02 /* XLSlideSwitchVC.m in Sources */,
 				18760BF01E1CAAA800007F02 /* main.m in Sources */,
+				1854EEED1E24D57E0051AB8D /* SlideSwitchDemo2.m in Sources */,
+				1854EEEC1E24D57E0051AB8D /* SlideSwitchDemo1.m in Sources */,
+				1854EEEB1E24D57E0051AB8D /* SegmentedSlideSwitchDemo2.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
