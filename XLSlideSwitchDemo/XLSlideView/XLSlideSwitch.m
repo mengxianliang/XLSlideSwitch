@@ -77,6 +77,7 @@ static const CGFloat TopScrollViewHeight = 40.0f;
     _topScrollView = [UIScrollView new];
     _topScrollView.showsHorizontalScrollIndicator = NO;
     _topScrollView.backgroundColor = [UIColor colorWithRed:247.0f/255.0f green:246.0f/255.0f blue:245.0f/255.0f alpha:1];
+    _topScrollView.frame = CGRectMake(0, 0, self.bounds.size.width,TopScrollViewHeight);
     [self addSubview:_topScrollView];
     
     //创建展示视图控制器的ScrollView
@@ -88,9 +89,10 @@ static const CGFloat TopScrollViewHeight = 40.0f;
     [_mainScrollView.panGestureRecognizer addTarget:self action:@selector(scrollHandlePan:)];
     [self addSubview:_mainScrollView];
     
-    //创建底部分割条
+    //创建分割线
     _lineView = [UIView new];
     _lineView.backgroundColor = [UIColor colorWithRed:204.0f/255.0f green:204.0f/255.0f blue:204.0f/255.0f alpha:1];
+    _lineView.frame = CGRectMake(0, _topScrollView.bounds.size.height, self.bounds.size.width, 0.5);
     [self addSubview:_lineView];
     
     //创建阴影view
@@ -109,20 +111,13 @@ static const CGFloat TopScrollViewHeight = 40.0f;
     [super layoutSubviews];
     
     //上半部分
-    if (!_showInNavBar){
-        _topScrollView.frame = CGRectMake(0, 0, self.bounds.size.width,TopScrollViewHeight);
-    }
     [self updateButtons];
     
-    [self updateShadowViewFrame];
-    
-    _shadowImageView.hidden = _hideShadow;
+    //更新shadow的位置
+    [self updateShadowView];
     
     //分割线
-    _lineView.frame = CGRectMake(0, _topScrollView.bounds.size.height, self.bounds.size.width, 0.5);
-    if (_showInNavBar) {
-        _lineView.hidden = true;
-    }
+    _lineView.hidden = _showInNavBar;
     
     //下半部分
     _mainScrollView.frame = CGRectMake(0, TopScrollViewHeight, self.bounds.size.width, self.bounds.size.height - TopScrollViewHeight);
@@ -171,13 +166,16 @@ static const CGFloat TopScrollViewHeight = 40.0f;
     _topScrollView.contentSize = CGSizeMake(CGRectGetMaxX(button.frame) + ButtonMargin, 0);
 }
 
--(void)updateShadowViewFrame
+-(void)updateShadowView
 {
     //更新阴影的范围
     UIButton *button = _buttons[_selectedIndex];
     _shadowImageView.frame = CGRectMake(button.frame.origin.x, CGRectGetMaxY(button.frame) - 1.5,button.bounds.size.width,1.5);
     _shadowImageView.center = CGPointMake(button.center.x, _shadowImageView.center.y);
     _shadowImageView.backgroundColor = _btnSelectedColor;
+    
+    //shadow是否隐藏
+    _shadowImageView.hidden = _hideShadow;
 }
 
 #pragma mark -
@@ -191,7 +189,6 @@ static const CGFloat TopScrollViewHeight = 40.0f;
     for (NSInteger i = 0; i<viewControllers.count; i++) {
         UIViewController *vc = viewControllers[i];
         [_mainScrollView addSubview:vc.view];
-        vc.view.tag = i;
         [_views addObject:vc.view];
     }
     
@@ -203,7 +200,6 @@ static const CGFloat TopScrollViewHeight = 40.0f;
         button.titleLabel.font = [UIFont systemFontOfSize:ButtonFontNormalSize];
         [button setTitleColor:self.btnSelectedColor forState:UIControlStateSelected];
         [button setTitleColor:self.btnNormalColor forState:UIControlStateNormal];
-        button.tag = i;
         [button addTarget:self action:@selector(buttonSelectedMethod:) forControlEvents:UIControlEventTouchUpInside];
         [_topScrollView addSubview:button];
         [_buttons addObject:button];
@@ -228,7 +224,7 @@ static const CGFloat TopScrollViewHeight = 40.0f;
     _selectedIndex = index;
     //更新选中效果
     for (UIButton *button in _buttons) {
-        if (button.tag == _selectedIndex) {
+        if ([_buttons indexOfObject:button] == _selectedIndex) {
             button.titleLabel.font = [UIFont systemFontOfSize:ButtonFontSelectedSize];
             button.selected = true;
         }else{
@@ -237,11 +233,12 @@ static const CGFloat TopScrollViewHeight = 40.0f;
             
         }
     }
+    
     [UIView animateWithDuration:0.35 animations:^{
         //更新TopScrollView的farme
         [self adjustTopScrollView:_buttons[index]];
         //更新shadow的frame
-        [self updateShadowViewFrame];
+        [self updateShadowView];
     } completion:^(BOOL finished) {
         if ([_delegate respondsToSelector:@selector(slideSwitchDidselectTab:)]) {
             [_delegate slideSwitchDidselectTab:index];
@@ -256,9 +253,9 @@ static const CGFloat TopScrollViewHeight = 40.0f;
 }
 
 //按钮点击方法
-- (void)buttonSelectedMethod:(UIButton *)sender
+- (void)buttonSelectedMethod:(UIButton *)button
 {
-    [self updateUIWithSelectedIndex:sender.tag byButton:true];
+    [self updateUIWithSelectedIndex:[_buttons indexOfObject:button] byButton:true];
 }
 
 //是选中button显示在屏幕中间适配
@@ -328,6 +325,7 @@ static const CGFloat TopScrollViewHeight = 40.0f;
 
 #pragma mark -
 #pragma mark 功能方法
+//在navbar中显示
 -(void)showsInNavBarOf:(UIViewController *)vc
 {
     _showInNavBar = true;
