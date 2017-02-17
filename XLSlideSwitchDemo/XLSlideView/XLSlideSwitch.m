@@ -134,6 +134,7 @@ static const CGFloat TopScrollViewHeight = 40.0f;
 
 -(void)updateButtons
 {
+    
     CGFloat btnXOffset = ButtonMargin;
     for (NSInteger i = 0; i<_buttons.count; i++) {
         UIButton *button = _buttons[i];
@@ -155,8 +156,9 @@ static const CGFloat TopScrollViewHeight = 40.0f;
     if (_adjustBtnSize2Screen) {
         for (NSInteger i = 0; i<_buttons.count; i++) {
             UIButton *button = _buttons[i];
-            CGFloat margin = 0.2*_topScrollView.bounds.size.width;
+            CGFloat margin = 0.1*_topScrollView.bounds.size.width;
             float btnWidth = (_topScrollView.bounds.size.width - 2*margin)/_viewControllers.count;
+            button.titleLabel.adjustsFontSizeToFitWidth = true;
             [button setFrame:CGRectMake(i*btnWidth + margin, 0, btnWidth, TopScrollViewHeight)];
         }
     }

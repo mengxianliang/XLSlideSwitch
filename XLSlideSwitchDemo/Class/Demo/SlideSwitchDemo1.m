@@ -42,7 +42,7 @@
     _slideSwitch.delegate = self;
     _slideSwitch.btnSelectedColor = RedColor;
     _slideSwitch.btnNormalColor = GrayColor;
-//    _slideSwitch.adjustBtnSize2Screen = true;
+    _slideSwitch.adjustBtnSize2Screen = true;
     _slideSwitch.viewControllers = viewControllers;
     _slideSwitch.adjustBtnSize2Screen = _adjustScreen;
     [self.view addSubview:_slideSwitch];
