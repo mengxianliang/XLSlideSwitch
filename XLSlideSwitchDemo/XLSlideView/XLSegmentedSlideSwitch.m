@@ -166,9 +166,9 @@ static const CGFloat TopViewHeight = 40.0f;
     
     if (byButton) {
         //更新主ScrollView范围
-        dispatch_async(dispatch_get_main_queue(), ^{
+        [UIView animateWithDuration:0.3 animations:^{
             [_mainScrollView setContentOffset:CGPointMake(index * self.bounds.size.width, 0) animated:YES];
-        });
+        }];
     }
     
     if ([_delegate respondsToSelector:@selector(slideSwitchDidselectTab:)]) {
