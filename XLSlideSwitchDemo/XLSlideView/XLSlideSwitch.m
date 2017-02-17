@@ -246,7 +246,7 @@ static const CGFloat TopScrollViewHeight = 40.0f;
         if (byButton) {
             //更新主ScrollView范围
             [UIView animateWithDuration:0.3 animations:^{
-                [_mainScrollView setContentOffset:CGPointMake(index * self.bounds.size.width, 0) animated:YES];
+                [_mainScrollView setContentOffset:CGPointMake(index * self.bounds.size.width, 0)];
             }];
         }
     }];
