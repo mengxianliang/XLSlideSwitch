@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		1854EEEA1E24D57E0051AB8D /* SegmentedSlideSwitchDemo1.m in Sources */ = {isa = PBXBuildFile; fileRef = 1854EEE01E24D57E0051AB8D /* SegmentedSlideSwitchDemo1.m */; };
 		1854EEEB1E24D57E0051AB8D /* SegmentedSlideSwitchDemo2.m in Sources */ = {isa = PBXBuildFile; fileRef = 1854EEE21E24D57E0051AB8D /* SegmentedSlideSwitchDemo2.m */; };
-		1854EEEC1E24D57E0051AB8D /* SlideSwitchDemo1.m in Sources */ = {isa = PBXBuildFile; fileRef = 1854EEE41E24D57E0051AB8D /* SlideSwitchDemo1.m */; };
-		1854EEED1E24D57E0051AB8D /* SlideSwitchDemo2.m in Sources */ = {isa = PBXBuildFile; fileRef = 1854EEE61E24D57E0051AB8D /* SlideSwitchDemo2.m */; };
 		1854EEEE1E24D57E0051AB8D /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1854EEE91E24D57E0051AB8D /* TestViewController.m */; };
 		1862B3BF1E23907B00B9BD17 /* XLSegmentedSlideSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 1862B3BE1E23907B00B9BD17 /* XLSegmentedSlideSwitch.m */; };
 		18760BF01E1CAAA800007F02 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18760BEF1E1CAAA800007F02 /* main.m */; };
@@ -20,6 +18,10 @@
 		18760BFB1E1CAAA800007F02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18760BFA1E1CAAA800007F02 /* Assets.xcassets */; };
 		18760BFE1E1CAAA800007F02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18760BFC1E1CAAA800007F02 /* LaunchScreen.storyboard */; };
 		18760C081E1CAABA00007F02 /* XLSlideSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 18760C071E1CAABA00007F02 /* XLSlideSwitch.m */; };
+		188B4F2D1E5BEA2200DF4D93 /* SlideSwitchNormalDemo1.m in Sources */ = {isa = PBXBuildFile; fileRef = 188B4F2C1E5BEA2200DF4D93 /* SlideSwitchNormalDemo1.m */; };
+		188B4F301E5BEA4500DF4D93 /* SlideSwitchNormalDemo2.m in Sources */ = {isa = PBXBuildFile; fileRef = 188B4F2F1E5BEA4500DF4D93 /* SlideSwitchNormalDemo2.m */; };
+		188B4F331E5BEA6900DF4D93 /* SlideSwitchAdjustScreenDemo1.m in Sources */ = {isa = PBXBuildFile; fileRef = 188B4F321E5BEA6900DF4D93 /* SlideSwitchAdjustScreenDemo1.m */; };
+		188B4F361E5BEA8500DF4D93 /* SlideSwitchAdjustScreenDemo2.m in Sources */ = {isa = PBXBuildFile; fileRef = 188B4F351E5BEA8500DF4D93 /* SlideSwitchAdjustScreenDemo2.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,10 +29,6 @@
 		1854EEE01E24D57E0051AB8D /* SegmentedSlideSwitchDemo1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentedSlideSwitchDemo1.m; sourceTree = "<group>"; };
 		1854EEE11E24D57E0051AB8D /* SegmentedSlideSwitchDemo2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentedSlideSwitchDemo2.h; sourceTree = "<group>"; };
 		1854EEE21E24D57E0051AB8D /* SegmentedSlideSwitchDemo2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentedSlideSwitchDemo2.m; sourceTree = "<group>"; };
-		1854EEE31E24D57E0051AB8D /* SlideSwitchDemo1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideSwitchDemo1.h; sourceTree = "<group>"; };
-		1854EEE41E24D57E0051AB8D /* SlideSwitchDemo1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideSwitchDemo1.m; sourceTree = "<group>"; };
-		1854EEE51E24D57E0051AB8D /* SlideSwitchDemo2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideSwitchDemo2.h; sourceTree = "<group>"; };
-		1854EEE61E24D57E0051AB8D /* SlideSwitchDemo2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideSwitchDemo2.m; sourceTree = "<group>"; };
 		1854EEE81E24D57E0051AB8D /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		1854EEE91E24D57E0051AB8D /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		1862B3BD1E23907B00B9BD17 /* XLSegmentedSlideSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLSegmentedSlideSwitch.h; sourceTree = "<group>"; };
@@ -49,6 +47,14 @@
 		18760C061E1CAABA00007F02 /* XLSlideSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLSlideSwitch.h; sourceTree = "<group>"; };
 		18760C071E1CAABA00007F02 /* XLSlideSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLSlideSwitch.m; sourceTree = "<group>"; };
 		18760C0A1E1CC81100007F02 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		188B4F2B1E5BEA2200DF4D93 /* SlideSwitchNormalDemo1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideSwitchNormalDemo1.h; sourceTree = "<group>"; };
+		188B4F2C1E5BEA2200DF4D93 /* SlideSwitchNormalDemo1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideSwitchNormalDemo1.m; sourceTree = "<group>"; };
+		188B4F2E1E5BEA4500DF4D93 /* SlideSwitchNormalDemo2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideSwitchNormalDemo2.h; sourceTree = "<group>"; };
+		188B4F2F1E5BEA4500DF4D93 /* SlideSwitchNormalDemo2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideSwitchNormalDemo2.m; sourceTree = "<group>"; };
+		188B4F311E5BEA6900DF4D93 /* SlideSwitchAdjustScreenDemo1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideSwitchAdjustScreenDemo1.h; sourceTree = "<group>"; };
+		188B4F321E5BEA6900DF4D93 /* SlideSwitchAdjustScreenDemo1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideSwitchAdjustScreenDemo1.m; sourceTree = "<group>"; };
+		188B4F341E5BEA8500DF4D93 /* SlideSwitchAdjustScreenDemo2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideSwitchAdjustScreenDemo2.h; sourceTree = "<group>"; };
+		188B4F351E5BEA8500DF4D93 /* SlideSwitchAdjustScreenDemo2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideSwitchAdjustScreenDemo2.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,10 +71,14 @@
 		1854EEDE1E24D57E0051AB8D /* Demo */ = {
 			isa = PBXGroup;
 			children = (
-				1854EEE31E24D57E0051AB8D /* SlideSwitchDemo1.h */,
-				1854EEE41E24D57E0051AB8D /* SlideSwitchDemo1.m */,
-				1854EEE51E24D57E0051AB8D /* SlideSwitchDemo2.h */,
-				1854EEE61E24D57E0051AB8D /* SlideSwitchDemo2.m */,
+				188B4F2B1E5BEA2200DF4D93 /* SlideSwitchNormalDemo1.h */,
+				188B4F2C1E5BEA2200DF4D93 /* SlideSwitchNormalDemo1.m */,
+				188B4F2E1E5BEA4500DF4D93 /* SlideSwitchNormalDemo2.h */,
+				188B4F2F1E5BEA4500DF4D93 /* SlideSwitchNormalDemo2.m */,
+				188B4F311E5BEA6900DF4D93 /* SlideSwitchAdjustScreenDemo1.h */,
+				188B4F321E5BEA6900DF4D93 /* SlideSwitchAdjustScreenDemo1.m */,
+				188B4F341E5BEA8500DF4D93 /* SlideSwitchAdjustScreenDemo2.h */,
+				188B4F351E5BEA8500DF4D93 /* SlideSwitchAdjustScreenDemo2.m */,
 				1854EEDF1E24D57E0051AB8D /* SegmentedSlideSwitchDemo1.h */,
 				1854EEE01E24D57E0051AB8D /* SegmentedSlideSwitchDemo1.m */,
 				1854EEE11E24D57E0051AB8D /* SegmentedSlideSwitchDemo2.h */,
@@ -221,15 +231,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				188B4F361E5BEA8500DF4D93 /* SlideSwitchAdjustScreenDemo2.m in Sources */,
 				18760BF61E1CAAA800007F02 /* ViewController.m in Sources */,
 				18760C081E1CAABA00007F02 /* XLSlideSwitch.m in Sources */,
 				1862B3BF1E23907B00B9BD17 /* XLSegmentedSlideSwitch.m in Sources */,
 				1854EEEA1E24D57E0051AB8D /* SegmentedSlideSwitchDemo1.m in Sources */,
 				1854EEEE1E24D57E0051AB8D /* TestViewController.m in Sources */,
+				188B4F2D1E5BEA2200DF4D93 /* SlideSwitchNormalDemo1.m in Sources */,
 				18760BF31E1CAAA800007F02 /* AppDelegate.m in Sources */,
 				18760BF01E1CAAA800007F02 /* main.m in Sources */,
-				1854EEED1E24D57E0051AB8D /* SlideSwitchDemo2.m in Sources */,
-				1854EEEC1E24D57E0051AB8D /* SlideSwitchDemo1.m in Sources */,
+				188B4F301E5BEA4500DF4D93 /* SlideSwitchNormalDemo2.m in Sources */,
+				188B4F331E5BEA6900DF4D93 /* SlideSwitchAdjustScreenDemo1.m in Sources */,
 				1854EEEB1E24D57E0051AB8D /* SegmentedSlideSwitchDemo2.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

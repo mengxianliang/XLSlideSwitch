@@ -1,13 +1,13 @@
 //
-//  XLSlideSwitchShowsInNavVC.h
+//  SlideSwitchNormal.h
 //  XLSlideSwitchDemo
 //
-//  Created by Apple on 2017/1/9.
+//  Created by Apple on 2017/2/21.
 //  Copyright © 2017年 Apple. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface SlideSwitchDemo2 : UIViewController
+@interface SlideSwitchNormalDemo1 : UIViewController
 
 @end

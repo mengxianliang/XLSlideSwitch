@@ -1,22 +1,23 @@
 //
-//  XLSlideSwitchShowsInNavVC.m
+//  SlideSwitchNormalShowInNav.m
 //  XLSlideSwitchDemo
 //
-//  Created by Apple on 2017/1/9.
+//  Created by Apple on 2017/2/21.
 //  Copyright © 2017年 Apple. All rights reserved.
 //
 
-#import "SlideSwitchDemo2.h"
+#import "SlideSwitchNormalDemo2.h"
 #import "TestViewController.h"
 #import "XLSlideSwitch.h"
 
-@interface SlideSwitchDemo2 ()<XLSlideSwitchDelegate>
+@interface SlideSwitchNormalDemo2 ()<XLSlideSwitchDelegate>
 {
     XLSlideSwitch *_slideSwitch;
 }
+
 @end
 
-@implementation SlideSwitchDemo2
+@implementation SlideSwitchNormalDemo2
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,15 +35,15 @@
         vc.title = titles[i];
         [viewControllers addObject:vc];
     }
-    
-    _slideSwitch = [XLSlideSwitch new];
-    _slideSwitch.frame = CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 64);
+    _slideSwitch = [[XLSlideSwitch alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 64)];
     _slideSwitch.delegate = self;
     _slideSwitch.btnSelectedColor = RedColor;
     _slideSwitch.btnNormalColor = GrayColor;
     _slideSwitch.viewControllers = viewControllers;
-    _slideSwitch.hideShadow = true;
+    //显示在viewcontroller的navigationBar上
     [_slideSwitch showsInNavBarOf:self];
+    //设置隐藏阴影
+    _slideSwitch.hideShadow = true;
     [self.view addSubview:_slideSwitch];
 }
 
@@ -61,15 +62,9 @@
     NSLog(@"滑动到左边缘，可以处理滑动返回等一些问题");
 }
 
-#pragma mark -
-#pragma mark 返回
--(void)backMethod
-{
-    [self.navigationController popViewControllerAnimated:true];
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     
 }
+
 @end

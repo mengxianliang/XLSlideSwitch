@@ -7,8 +7,12 @@
 //
 
 #import "ViewController.h"
-#import "SlideSwitchDemo1.h"
-#import "SlideSwitchDemo2.h"
+
+#import "SlideSwitchNormalDemo1.h"
+#import "SlideSwitchNormalDemo2.h"
+
+#import "SlideSwitchAdjustScreenDemo1.h"
+#import "SlideSwitchAdjustScreenDemo2.h"
 
 #import "SegmentedslideSwitchDemo1.h"
 #import "SegmentedSlideSwitchDemo2.h"
@@ -49,12 +53,12 @@
 
 -(NSArray *)titles
 {
-    return @[@[@"SlideSwitchDemo1",@"SlideSwitchDemo2",@"SlideSwitchDemo3",],@[@"SegmentedSlideSwitchDemo1",@"SegmentedSlideSwitchDemo2"]];
+    return @[@[@"SlideSwitchNormalDemo1",@"SlideSwitchNormalDemo2",@"SlideSwitchAdjustScreenDemo1",@"SlideSwitchAdjustScreenDemo2"],@[@"SegmentedSlideSwitchDemo1",@"SegmentedSlideSwitchDemo2"]];
 }
 
 -(NSArray *)subTitles
 {
-    return @[@[@"SlideSwitchNormal",@"SlideSwitch+AdjustScreenWidth",@"SlideSwitch+ShowInNavigationBar",],@[@"SegmentedSlideSwitchNormal",@"SegmentedSlideSwitchShowInNavigationBar"]];
+    return @[@[@"SlideSwitchNormal",@"SlideSwitchNormalShowInNavigationBar",@"SlideSwitchAdjustScreenWidth",@"SlideSwitchAdjustScreenWidthShowInNavigationBar"],@[@"SegmentedSlideSwitch",@"SegmentedSlideSwitchShowInNavigationBar"]];
 }
 
 -(NSArray*)sectionTitles
@@ -104,22 +108,29 @@
         switch (indexPath.row) {
             case 0:
             {
-                SlideSwitchDemo1 *vc = [SlideSwitchDemo1 new];
+                SlideSwitchNormalDemo1 *vc = [SlideSwitchNormalDemo1 new];
                 vc.title = title;
                 [self.navigationController pushViewController:vc animated:true];
             }
                 break;
             case 1:
             {
-                SlideSwitchDemo1 *vc = [SlideSwitchDemo1 new];
+                SlideSwitchNormalDemo2 *vc = [SlideSwitchNormalDemo2 new];
                 vc.title = title;
-                vc.adjustScreen = true;
                 [self.navigationController pushViewController:vc animated:true];
             }
                 break;
+
             case 2:
             {
-                SlideSwitchDemo2 *vc = [SlideSwitchDemo2 new];
+                SlideSwitchAdjustScreenDemo1 *vc = [SlideSwitchAdjustScreenDemo1 new];
+                vc.title = title;
+                [self.navigationController pushViewController:vc animated:true];
+            }
+                break;
+            case 3:
+            {
+                SlideSwitchAdjustScreenDemo2 *vc = [SlideSwitchAdjustScreenDemo2 new];
                 vc.title = title;
                 [self.navigationController pushViewController:vc animated:true];
             }

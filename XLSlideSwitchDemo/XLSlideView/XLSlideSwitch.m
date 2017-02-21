@@ -144,7 +144,7 @@ static const CGFloat TopScrollViewHeight = 40.0f;
         [button setTitleColor:_btnSelectedColor forState:UIControlStateSelected];
         btnXOffset += textSize.width + ButtonMargin;
         if (i == _selectedIndex) {
-            button.titleLabel.font = [UIFont systemFontOfSize:ButtonFontSelectedSize];
+            button.titleLabel.font = [UIFont boldSystemFontOfSize:ButtonFontSelectedSize];
             button.selected = true;
         }else{
             button.titleLabel.font = [UIFont systemFontOfSize:ButtonFontNormalSize];
@@ -158,7 +158,6 @@ static const CGFloat TopScrollViewHeight = 40.0f;
             UIButton *button = _buttons[i];
             CGFloat margin = 0.1*_topScrollView.bounds.size.width;
             float btnWidth = (_topScrollView.bounds.size.width - 2*margin)/_viewControllers.count;
-            button.titleLabel.adjustsFontSizeToFitWidth = true;
             [button setFrame:CGRectMake(i*btnWidth + margin, 0, btnWidth, TopScrollViewHeight)];
         }
     }
@@ -227,7 +226,7 @@ static const CGFloat TopScrollViewHeight = 40.0f;
     //更新选中效果
     for (UIButton *button in _buttons) {
         if ([_buttons indexOfObject:button] == _selectedIndex) {
-            button.titleLabel.font = [UIFont systemFontOfSize:ButtonFontSelectedSize];
+            button.titleLabel.font = [UIFont boldSystemFontOfSize:ButtonFontSelectedSize];
             button.selected = true;
         }else{
             button.titleLabel.font = [UIFont systemFontOfSize:ButtonFontNormalSize];
@@ -317,7 +316,7 @@ static const CGFloat TopScrollViewHeight = 40.0f;
     NSStringDrawingUsesFontLeading;
     NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
     [style setLineBreakMode:NSLineBreakByTruncatingTail];
-    NSDictionary *attributes = @{ NSFontAttributeName : [UIFont systemFontOfSize:ButtonFontSelectedSize], NSParagraphStyleAttributeName : style };
+    NSDictionary *attributes = @{ NSFontAttributeName : [UIFont boldSystemFontOfSize:ButtonFontSelectedSize], NSParagraphStyleAttributeName : style };
     CGSize textSize = [title boundingRectWithSize:CGSizeMake(_topScrollView.bounds.size.width, TopScrollViewHeight)
                                           options:opts
                                        attributes:attributes

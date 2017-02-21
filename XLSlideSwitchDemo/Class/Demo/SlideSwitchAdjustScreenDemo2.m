@@ -1,23 +1,22 @@
 //
-//  XLSlideSwitchViewController.m
+//  SlideSwitchAdjustScreen+Nav.m
 //  XLSlideSwitchDemo
 //
-//  Created by Apple on 2017/1/4.
+//  Created by Apple on 2017/2/21.
 //  Copyright © 2017年 Apple. All rights reserved.
 //
 
-#import "SlideSwitchDemo1.h"
+#import "SlideSwitchAdjustScreenDemo2.h"
 #import "TestViewController.h"
 #import "XLSlideSwitch.h"
 
-@interface SlideSwitchDemo1 ()<XLSlideSwitchDelegate>
+@interface SlideSwitchAdjustScreenDemo2 ()<XLSlideSwitchDelegate>
 {
     XLSlideSwitch *_slideSwitch;
 }
 @end
 
-@implementation SlideSwitchDemo1
-
+@implementation SlideSwitchAdjustScreenDemo2
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,10 +28,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     NSMutableArray *viewControllers = [NSMutableArray new];
-    NSArray *titles = @[@"今天",@"是个",@"好日子",@"心想的",@"事儿",@"都能成",@"明天",@"是个",@"好日子",@"打开了家门",@"咱迎春风",@"~~~"];
-    if (_adjustScreen) {
-        titles = @[@"今天",@"是个",@"好日子"];
-    }
+    NSArray *titles = @[@"今天",@"是个",@"好日子"];
     for (int i = 0 ; i<titles.count; i++) {
         TestViewController *vc = [TestViewController new];
         vc.title = titles[i];
@@ -42,9 +38,13 @@
     _slideSwitch.delegate = self;
     _slideSwitch.btnSelectedColor = RedColor;
     _slideSwitch.btnNormalColor = GrayColor;
-    _slideSwitch.adjustBtnSize2Screen = true;
     _slideSwitch.viewControllers = viewControllers;
-    _slideSwitch.adjustBtnSize2Screen = _adjustScreen;
+    //设置适配屏幕宽度属性为真
+    _slideSwitch.adjustBtnSize2Screen = true;
+    //显示在viewcontroller的navigationBar上
+    [_slideSwitch showsInNavBarOf:self];
+    //设置隐藏阴影
+    _slideSwitch.hideShadow = true;
     [self.view addSubview:_slideSwitch];
 }
 
