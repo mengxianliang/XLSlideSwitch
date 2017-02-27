@@ -9,8 +9,9 @@
 #import "SegmentedSlideSwitchDemo2.h"
 #import "TestViewController.h"
 #import "XLSegmentedSlideSwitch.h"
+#import "PushTestViewController.h"
 
-@interface SegmentedSlideSwitchDemo2 ()<XLSlideSwitchDelegate>
+@interface SegmentedSlideSwitchDemo2 ()<XLSlideSwitchDelegate,TestViewControllerDelegate>
 {
     XLSegmentedSlideSwitch *_slideSwitch;
 }
@@ -32,6 +33,7 @@
     for (int i = 0 ; i<titles.count; i++) {
         TestViewController *vc = [TestViewController new];
         vc.title = titles[i];
+        vc.delegate = self;
         [viewControllers addObject:vc];
     }
     _slideSwitch = [[XLSegmentedSlideSwitch alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 64)];
@@ -55,6 +57,15 @@
 -(void)slideSwitchPanLeftEdge:(UIPanGestureRecognizer *)panParam
 {
     NSLog(@"滑动到左边缘，可以处理滑动返回等一些问题");
+}
+
+#pragma mark -
+#pragma mark TestViewControllerDelegate
+
+-(void)testTableViewDidClickAt:(NSIndexPath *)indexPath
+{
+    PushTestViewController *pushVC = [[PushTestViewController alloc] init];
+    [self.navigationController pushViewController:pushVC animated:true];
 }
 
 - (void)didReceiveMemoryWarning {

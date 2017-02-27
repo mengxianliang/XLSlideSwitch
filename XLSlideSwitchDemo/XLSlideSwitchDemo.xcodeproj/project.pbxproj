@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		182B3BB81E61244700F57E43 /* PushTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182B3BB71E61244700F57E43 /* PushTestViewController.m */; };
 		1854EEEA1E24D57E0051AB8D /* SegmentedSlideSwitchDemo1.m in Sources */ = {isa = PBXBuildFile; fileRef = 1854EEE01E24D57E0051AB8D /* SegmentedSlideSwitchDemo1.m */; };
 		1854EEEB1E24D57E0051AB8D /* SegmentedSlideSwitchDemo2.m in Sources */ = {isa = PBXBuildFile; fileRef = 1854EEE21E24D57E0051AB8D /* SegmentedSlideSwitchDemo2.m */; };
 		1854EEEE1E24D57E0051AB8D /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1854EEE91E24D57E0051AB8D /* TestViewController.m */; };
@@ -25,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		182B3BB61E61244700F57E43 /* PushTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushTestViewController.h; sourceTree = "<group>"; };
+		182B3BB71E61244700F57E43 /* PushTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushTestViewController.m; sourceTree = "<group>"; };
 		1854EEDF1E24D57E0051AB8D /* SegmentedSlideSwitchDemo1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentedSlideSwitchDemo1.h; sourceTree = "<group>"; };
 		1854EEE01E24D57E0051AB8D /* SegmentedSlideSwitchDemo1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegmentedSlideSwitchDemo1.m; sourceTree = "<group>"; };
 		1854EEE11E24D57E0051AB8D /* SegmentedSlideSwitchDemo2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegmentedSlideSwitchDemo2.h; sourceTree = "<group>"; };
@@ -92,6 +95,8 @@
 			children = (
 				1854EEE81E24D57E0051AB8D /* TestViewController.h */,
 				1854EEE91E24D57E0051AB8D /* TestViewController.m */,
+				182B3BB61E61244700F57E43 /* PushTestViewController.h */,
+				182B3BB71E61244700F57E43 /* PushTestViewController.m */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -238,6 +243,7 @@
 				1854EEEA1E24D57E0051AB8D /* SegmentedSlideSwitchDemo1.m in Sources */,
 				1854EEEE1E24D57E0051AB8D /* TestViewController.m in Sources */,
 				188B4F2D1E5BEA2200DF4D93 /* SlideSwitchNormalDemo1.m in Sources */,
+				182B3BB81E61244700F57E43 /* PushTestViewController.m in Sources */,
 				18760BF31E1CAAA800007F02 /* AppDelegate.m in Sources */,
 				18760BF01E1CAAA800007F02 /* main.m in Sources */,
 				188B4F301E5BEA4500DF4D93 /* SlideSwitchNormalDemo2.m in Sources */,

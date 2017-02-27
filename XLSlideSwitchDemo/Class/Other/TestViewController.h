@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol TestViewControllerDelegate <NSObject>
+
+-(void)testTableViewDidClickAt:(NSIndexPath*)indexPath;
+
+@end
+
 @interface TestViewController : UIViewController
+
+@property (nonatomic,weak) id<TestViewControllerDelegate>delegate;
 
 @end

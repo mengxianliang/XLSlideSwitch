@@ -67,6 +67,13 @@
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([_delegate respondsToSelector:@selector(testTableViewDidClickAt:)]) {
+        [_delegate performSelector:@selector(testTableViewDidClickAt:) withObject:indexPath];
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     

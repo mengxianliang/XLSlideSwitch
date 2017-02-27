@@ -9,8 +9,9 @@
 #import "SlideSwitchAdjustScreenDemo1.h"
 #import "TestViewController.h"
 #import "XLSlideSwitch.h"
+#import "PushTestViewController.h"
 
-@interface SlideSwitchAdjustScreenDemo1 ()<XLSlideSwitchDelegate>
+@interface SlideSwitchAdjustScreenDemo1 ()<XLSlideSwitchDelegate,TestViewControllerDelegate>
 {
     XLSlideSwitch *_slideSwitch;
 }
@@ -33,6 +34,7 @@
         TestViewController *vc = [TestViewController new];
         vc.title = titles[i];
         [viewControllers addObject:vc];
+        vc.delegate = self;
     }
     _slideSwitch = [[XLSlideSwitch alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 64)];
     _slideSwitch.delegate = self;
@@ -57,6 +59,15 @@
 -(void)slideSwitchPanLeftEdge:(UIPanGestureRecognizer *)panParam
 {
     NSLog(@"滑动到左边缘，可以处理滑动返回等一些问题");
+}
+
+#pragma mark -
+#pragma mark TestViewControllerDelegate
+
+-(void)testTableViewDidClickAt:(NSIndexPath *)indexPath
+{
+    PushTestViewController *pushVC = [[PushTestViewController alloc] init];
+    [self.navigationController pushViewController:pushVC animated:true];
 }
 
 - (void)didReceiveMemoryWarning {
