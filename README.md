@@ -19,7 +19,6 @@
     NSMutableArray *viewControllers = [NSMutableArray new];
     for (int i = 0 ; i<titles.count; i++) {
         TestViewController *vc = [TestViewController new];
-        vc.title = titles[i];
         vc.delegate = self;
         [viewControllers addObject:vc];
     }
