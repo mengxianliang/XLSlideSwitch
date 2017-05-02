@@ -10,7 +10,7 @@
 
 ### 使用方法：
 
-** 1、创建数据源：titles和ViewControllers **
+#### 1、创建数据源：titles、viewControllers
 
 ```objc
     //要显示的标题
@@ -24,7 +24,7 @@
     }
 ```
 
-** 2、创建滚动视图 **
+#### 2、创建滚动视图
 
 ```objc
     _slideSwitch = [[XLSlideSwitch alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 64)];
@@ -40,7 +40,7 @@
     [self.view addSubview:_slideSwitch];
 ```
 
-** 3、代理方法 **
+#### 3、代理方法
 
 
 ```objc
