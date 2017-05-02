@@ -28,13 +28,12 @@
 {
     self.view.backgroundColor = [UIColor whiteColor];
     
-    //创建需要展示的ViewController
+    //要显示的标题
     NSArray *titles = @[@"今天",@"是个",@"好日子",@"心想的",@"事儿",@"都能成",@"明天",@"是个",@"好日子",@"打开了家门",@"咱迎春风",@"~~~"];
-    
+    //创建需要展示的ViewController
     NSMutableArray *viewControllers = [NSMutableArray new];
     for (int i = 0 ; i<titles.count; i++) {
         TestViewController *vc = [TestViewController new];
-        vc.title = titles[i];
         vc.delegate = self;
         [viewControllers addObject:vc];
     }
