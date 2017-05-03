@@ -7,6 +7,7 @@
 //
 
 #import "TestViewController.h"
+#import "PushTestViewController.h"
 
 @interface TestViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -69,9 +70,8 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([_delegate respondsToSelector:@selector(testTableViewDidClickAt:)]) {
-        [_delegate performSelector:@selector(testTableViewDidClickAt:) withObject:indexPath];
-    }
+    PushTestViewController *pushVC = [[PushTestViewController alloc] init];
+    [self.navigationController pushViewController:pushVC animated:true];
 }
 
 - (void)didReceiveMemoryWarning {

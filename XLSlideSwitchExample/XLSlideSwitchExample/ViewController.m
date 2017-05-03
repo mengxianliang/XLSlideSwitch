@@ -49,12 +49,12 @@
 
 -(NSArray *)titles
 {
-    return @[@[@"SlideSwitchExample1",@"SlideSwitchExample1"],@[@"SegmentedSlideSwitchExample1",@"SegmentedSlideSwitchExample1"]];
+    return @[@[@"SlideSwitchExample1",@"SlideSwitchExample2"],@[@"SegmentedSlideSwitchExample1",@"SegmentedSlideSwitchExample2"]];
 }
 
 -(NSArray *)subTitles
 {
-    return @[@[@"SlideSwitchNormal",@"SlideSwitchShowInNavigationBar"],@[@"SegmentedSlideSwitchNormal",@"SegmentedSlideSwitchShowInNavigationBar"]];
+    return @[@[@"正常显示",@"标题在NavigationBar上显示"],@[@"正常显示",@"标题在NavigationBar上显示"]];
 }
 
 -(NSArray*)sectionTitles

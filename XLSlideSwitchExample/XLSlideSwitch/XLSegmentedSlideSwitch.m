@@ -17,21 +17,22 @@ static const CGFloat SegmentHeight = 40.0f;
     UISegmentedControl *_segment;
     
     UIPageViewController *_pageVC;
-    
-    BOOL _showTitlesInNavBar;
 }
 @end
 
 @implementation XLSegmentedSlideSwitch
 
--(instancetype)initWithFrame:(CGRect)frame{
+-(instancetype)initWithFrame:(CGRect)frame Titles:(NSArray <NSString *>*)titles viewControllers:(NSArray <UIViewController *>*)viewControllers{
     if (self = [super initWithFrame:frame]) {
         [self buildUI];
+        self.titles = titles;
+        self.viewControllers = viewControllers;
     }
     return self;
 }
 
 -(void)buildUI{
+    [self addSubview:[UIView new]];
     //添加分段选择器
     _segment = [[UISegmentedControl alloc] initWithFrame:CGRectMake(5, 5, self.bounds.size.width - 10, SegmentHeight - 10)];
     [_segment addTarget:self action:@selector(segmentValueChanged:) forControlEvents:UIControlEventValueChanged];
@@ -39,17 +40,27 @@ static const CGFloat SegmentHeight = 40.0f;
     
     //添加分页滚动视图控制器
     _pageVC = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
+    _pageVC.view.frame = CGRectMake(0, SegmentHeight, self.bounds.size.width, self.bounds.size.height - SegmentHeight);
     _pageVC.delegate = self;
     _pageVC.dataSource = self;
-    _pageVC.view.frame = CGRectMake(0, SegmentHeight, self.bounds.size.width, self.bounds.size.height - SegmentHeight);
     [self addSubview:_pageVC.view];
+}
+
+-(void)showInViewController:(UIViewController *)viewController{
+    [viewController addChildViewController:_pageVC];
+    [viewController.view addSubview:self];
+}
+
+-(void)showInNavigationController:(UINavigationController *)navigationController{
+    [navigationController.topViewController.view addSubview:self];
+    [navigationController.topViewController addChildViewController:_pageVC];
+    navigationController.topViewController.navigationItem.titleView = _segment;
+    _pageVC.view.frame = self.bounds;
+    _segment.backgroundColor = [UIColor clearColor];
 }
 
 -(void)willMoveToSuperview:(UIView *)newSuperview{
     [super willMoveToSuperview:newSuperview];
-    if (_showTitlesInNavBar) {
-        _pageVC.view.frame = self.bounds;
-    }
     [self performSwitchDelegateMethod];
 }
 
@@ -124,12 +135,6 @@ static const CGFloat SegmentHeight = 40.0f;
 
 #pragma mark -
 #pragma mark 其他方法
--(void)showTitlesInNavBarOfVC:(UIViewController*)viewControler{
-    _showTitlesInNavBar = true;
-    viewControler.navigationItem.titleView = _segment;
-    _segment.backgroundColor = [UIColor clearColor];
-}
-
 //执行切换代理方法
 -(void)performSwitchDelegateMethod{
     if ([_delegate respondsToSelector:@selector(slideSwitchDidselectAtIndex:)]) {

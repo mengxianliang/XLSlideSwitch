@@ -31,20 +31,25 @@
  * 按钮选中时的颜色
  */
 @property (nonatomic ,strong) UIColor *itemSelectedColor;
-
 /**
  * 隐藏阴影
  */
 @property (nonatomic ,assign) BOOL hideShadow;
-
 /**
- 代理方法
+ * 代理方法
  */
 @property (nonatomic ,weak) id <XLSlideSwitchDelegate>delegate;
-
 /**
- * 在NavigationBar上显示标题
+ * 初始化方法
  */
--(void)showTitlesInNavBarOfVC:(UIViewController*)viewControler;
+-(instancetype)initWithFrame:(CGRect)frame Titles:(NSArray <NSString *>*)titles viewControllers:(NSArray <UIViewController *>*)viewControllers;
+/**
+ * 标题显示在ViewController中
+ */
+-(void)showInViewController:(UIViewController *)viewController;
+/**
+ * 标题显示在NavigationBar中
+ */
+-(void)showInNavigationController:(UINavigationController *)navigationController;
 
 @end

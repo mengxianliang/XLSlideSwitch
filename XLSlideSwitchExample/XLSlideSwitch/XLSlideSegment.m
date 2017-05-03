@@ -28,8 +28,8 @@ static const CGFloat ItemSelectedFontSize = 18.0f;
 
 @implementation XLSlideSegment
 
--(instancetype)initWithFrame:(CGRect)frame{
-    if (self = [super initWithFrame:frame]) {
+-(instancetype)init{
+    if (self = [super init]) {
         [self buildUI];
     }
     return self;
@@ -46,7 +46,7 @@ static const CGFloat ItemSelectedFontSize = 18.0f;
     layout.sectionInset = UIEdgeInsetsMake(0, ItemMargin, 0, ItemMargin);
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     
-    _collectionView = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:layout];
+    _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
     _collectionView.backgroundColor = [UIColor clearColor];

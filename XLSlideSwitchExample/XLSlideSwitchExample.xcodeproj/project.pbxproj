@@ -125,10 +125,10 @@
 				5E6724B21EB88E7600F4EF2E /* SegmentedSlideSwitchExample1.m */,
 				5E6724B31EB88E7600F4EF2E /* SegmentedSlideSwitchExample2.h */,
 				5E6724B41EB88E7600F4EF2E /* SegmentedSlideSwitchExample2.m */,
-				5E6724AB1EB88E3D00F4EF2E /* PushTestViewController.h */,
-				5E6724AC1EB88E3D00F4EF2E /* PushTestViewController.m */,
 				5E6724AD1EB88E3D00F4EF2E /* TestViewController.h */,
 				5E6724AE1EB88E3D00F4EF2E /* TestViewController.m */,
+				5E6724AB1EB88E3D00F4EF2E /* PushTestViewController.h */,
+				5E6724AC1EB88E3D00F4EF2E /* PushTestViewController.m */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -136,15 +136,15 @@
 		5E6724971EB88DD200F4EF2E /* XLSlideSwitch */ = {
 			isa = PBXGroup;
 			children = (
+				5E67249E1EB88DED00F4EF2E /* XLSlideSwitch.h */,
+				5E67249F1EB88DED00F4EF2E /* XLSlideSwitch.m */,
 				5E6724981EB88DED00F4EF2E /* XLSegmentedSlideSwitch.h */,
 				5E6724991EB88DED00F4EF2E /* XLSegmentedSlideSwitch.m */,
+				5E6724A01EB88DED00F4EF2E /* XLSlideSwitchDelegate.h */,
 				5E67249A1EB88DED00F4EF2E /* XLSlideSegment.h */,
 				5E67249B1EB88DED00F4EF2E /* XLSlideSegment.m */,
 				5E67249C1EB88DED00F4EF2E /* XLSlideSegmentItem.h */,
 				5E67249D1EB88DED00F4EF2E /* XLSlideSegmentItem.m */,
-				5E67249E1EB88DED00F4EF2E /* XLSlideSwitch.h */,
-				5E67249F1EB88DED00F4EF2E /* XLSlideSwitch.m */,
-				5E6724A01EB88DED00F4EF2E /* XLSlideSwitchDelegate.h */,
 			);
 			path = XLSlideSwitch;
 			sourceTree = "<group>";
@@ -397,6 +397,7 @@
 				5E6724951EB88D8C00F4EF2E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
