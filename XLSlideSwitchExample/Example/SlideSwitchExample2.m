@@ -45,7 +45,7 @@
     _slideSwitch.itemSelectedColor = RedColor;
     _slideSwitch.itemNormalColor = GrayColor;
     _slideSwitch.hideShadow = true;
-    //设置要显示的视图集合
+    //显示方法
     [_slideSwitch showInNavigationController:self.navigationController];
 }
 
