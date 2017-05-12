@@ -78,7 +78,7 @@ static const CGFloat ItemSelectedFontSize = 18.0f;
     
     //设置阴影
     _shadow.backgroundColor = _itemSelectedColor;
-    _shadow.frame = CGRectMake(ItemMargin, self.bounds.size.height - 2, [self itemWidthOfIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]], 2);
+    _shadow.frame = CGRectMake(_selectedIndex?[_collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:_selectedIndex inSection:0]].frame.origin.x:ItemMargin, self.bounds.size.height - 2, [self itemWidthOfIndexPath:[NSIndexPath indexPathForRow:_selectedIndex?_selectedIndex:0 inSection:0]], 2);
     if (_hideShadow) {
         _shadow.hidden = true;
     }
