@@ -31,6 +31,18 @@ static const CGFloat SegmentHeight = 40.0f;
     return self;
 }
 
+-(instancetype)initWithFrame:(CGRect)frame Titles:(NSArray <NSString *>*)titles viewControllers:(NSArray <UIViewController *>*)viewControllers selectedIndex:(NSInteger)selectedIndex
+{
+    if (self = [super initWithFrame:frame]) {
+        [self buildUI];
+        self.titles = titles;
+        self.viewControllers = viewControllers;
+        self.selectedIndex = selectedIndex;
+    }
+    return self;
+}
+
+
 -(void)buildUI{
     [self addSubview:[UIView new]];
     //添加分段选择器
@@ -70,7 +82,7 @@ static const CGFloat SegmentHeight = 40.0f;
 
 -(void)setViewControllers:(NSArray *)viewControllers{
     _viewControllers = viewControllers;
-    [_pageVC setViewControllers:@[_viewControllers.firstObject] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
+
 }
 
 -(void)setTitles:(NSArray *)titles{
@@ -89,6 +101,7 @@ static const CGFloat SegmentHeight = 40.0f;
 -(void)setSelectedIndex:(NSInteger)selectedIndex{
     _selectedIndex = selectedIndex;
     _segment.selectedIndex = _selectedIndex;
+    [_pageVC setViewControllers:_selectedIndex == 0?@[_viewControllers.firstObject]:@[_viewControllers[_selectedIndex]] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
 }
 
 -(void)setHideShadow:(BOOL)hideShadow{

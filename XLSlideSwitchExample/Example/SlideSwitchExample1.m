@@ -38,7 +38,8 @@
         [viewControllers addObject:vc];
     }
     //创建滚动视图
-    _slideSwitch = [[XLSlideSwitch alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 64) Titles:titles viewControllers:viewControllers];
+    _slideSwitch = [[XLSlideSwitch alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 64) Titles:titles viewControllers:viewControllers selectedIndex:2];
+    
     //设置代理
     _slideSwitch.delegate = self;
     //设置按钮选中和未选中状态的标题颜色
