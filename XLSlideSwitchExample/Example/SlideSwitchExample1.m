@@ -44,7 +44,6 @@
     //设置按钮选中和未选中状态的标题颜色
     _slideSwitch.itemSelectedColor = RedColor;
     _slideSwitch.itemNormalColor = GrayColor;
-    _slideSwitch.selectedIndex = 5;
     //显示方法
     [_slideSwitch showInViewController:self];
 }

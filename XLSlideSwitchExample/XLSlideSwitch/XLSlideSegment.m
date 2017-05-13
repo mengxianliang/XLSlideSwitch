@@ -54,13 +54,15 @@ static const CGFloat ItemSelectedFontSize = 18.0f;
     _collectionView.showsHorizontalScrollIndicator = false;
     [self addSubview:_collectionView];
     
-    _shadow = [[UIView alloc] init];
+    _shadow = [UIView new];
     [_collectionView addSubview:_shadow];
     
     _bottomLine = [UIView new];
     _bottomLine.backgroundColor = [UIColor colorWithRed:204.0f/255.0f green:204.0f/255.0f blue:204.0f/255.0f alpha:1];
     _bottomLine.frame = CGRectMake(0, _collectionView.bounds.size.height - 0.5, self.bounds.size.width, 0.5);
     [self addSubview:_bottomLine];
+    
+    
 }
 
 -(void)layoutSubviews{
@@ -73,12 +75,10 @@ static const CGFloat ItemSelectedFontSize = 18.0f;
             _collectionView.contentInset = UIEdgeInsetsMake(0, insetX, 0, insetX);
         }
     }];
-    
-    //设置设置背景颜色
+    //设置阴影
     _shadow.backgroundColor = _itemSelectedColor;
-    _shadow.hidden = _hideShadow;
-    //更新UI
     self.selectedIndex = _selectedIndex;
+    _shadow.hidden = _hideShadow;
 }
 
 #pragma mark -
@@ -86,6 +86,7 @@ static const CGFloat ItemSelectedFontSize = 18.0f;
 -(void)setSelectedIndex:(NSInteger)selectedIndex{
     
     _selectedIndex = selectedIndex;
+    
     //更新阴影位置
     [UIView animateWithDuration:0.3 animations:^{
         _shadow.frame = CGRectMake([_collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:_selectedIndex inSection:0]].frame.origin.x, self.bounds.size.height - 2, [self itemWidthOfIndexPath:[NSIndexPath indexPathForRow:_selectedIndex inSection:0]], 2);

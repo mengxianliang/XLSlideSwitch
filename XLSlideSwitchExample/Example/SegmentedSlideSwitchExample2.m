@@ -43,7 +43,6 @@
 
 #pragma mark -
 #pragma mark SlideSwitchDelegate
-
 -(void)slideSwitchDidselectAtIndex:(NSUInteger)index{
     NSLog(@"切换到了第 -- %zd -- 个视图",index);
 }
