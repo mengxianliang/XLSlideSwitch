@@ -62,7 +62,7 @@ static const CGFloat SegmentHeight = 40.0f;
 
 -(void)willMoveToSuperview:(UIView *)newSuperview{
     [super willMoveToSuperview:newSuperview];
-    [self performSwitchDelegateMethod];
+    [self switchToIndex:_selectedIndex];
 }
 
 #pragma mark -
@@ -70,7 +70,6 @@ static const CGFloat SegmentHeight = 40.0f;
 
 -(void)setViewControllers:(NSArray *)viewControllers{
     _viewControllers = viewControllers;
-    [_pageVC setViewControllers:@[_viewControllers.firstObject] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
 }
 
 -(void)setTitles:(NSArray *)titles{
@@ -100,16 +99,13 @@ static const CGFloat SegmentHeight = 40.0f;
 #pragma mark SlideSegmentDelegate
 
 -(void)slideSegmentDidSelectedAtIndex:(NSInteger)index{
-    __weak __typeof(self)weekSelf = self;
-    [_pageVC setViewControllers:@[_viewControllers[index]] direction:index<_selectedIndex animated:YES completion:^(BOOL finished) {
-        _selectedIndex = index;
-        [weekSelf performSwitchDelegateMethod];
-    }];
+    if (index == _selectedIndex) {return;}
+    [self switchToIndex:index];
 }
 
 #pragma mark -
 #pragma mark UIPageViewControllerDelegate&DataSource
-
+//下一个视图
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
     UIViewController *vc;
     if (_selectedIndex + 1 < _viewControllers.count) {
@@ -118,7 +114,7 @@ static const CGFloat SegmentHeight = 40.0f;
     }
     return vc;
 }
-
+//上一个视图
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
     UIViewController *vc;
     if (_selectedIndex - 1 >= 0) {
@@ -128,7 +124,7 @@ static const CGFloat SegmentHeight = 40.0f;
     return vc;
 }
 
-
+//代理
 - (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray<UIViewController *> *)previousViewControllers transitionCompleted:(BOOL)completed {
     _selectedIndex = [_viewControllers indexOfObject:pageViewController.viewControllers.firstObject];
     _segment.selectedIndex = _selectedIndex;
@@ -141,6 +137,15 @@ static const CGFloat SegmentHeight = 40.0f;
 
 #pragma mark -
 #pragma mark 其他方法
+//滚动到指定位置
+-(void)switchToIndex:(NSInteger)index{
+    __weak __typeof(self)weekSelf = self;
+    [_pageVC setViewControllers:@[_viewControllers[index]] direction:index<_selectedIndex animated:YES completion:^(BOOL finished) {
+        _selectedIndex = index;
+        [weekSelf performSwitchDelegateMethod];
+    }];
+}
+
 //执行切换代理方法
 -(void)performSwitchDelegateMethod{
     if ([_delegate respondsToSelector:@selector(slideSwitchDidselectAtIndex:)]) {
