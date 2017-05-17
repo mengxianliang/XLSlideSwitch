@@ -30,4 +30,6 @@
 
 @property (nonatomic ,weak) id<XLSlideSegmentDelegate>delegate;
 
+@property (nonatomic ,assign) CGFloat progress;
+
 @end

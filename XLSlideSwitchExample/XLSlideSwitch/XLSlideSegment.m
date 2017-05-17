@@ -54,7 +54,7 @@ static const CGFloat ItemSelectedFontSize = 18.0f;
     _collectionView.showsHorizontalScrollIndicator = false;
     [self addSubview:_collectionView];
     
-    _shadow = [UIView new];
+    _shadow = [[UIView alloc] init];
     [_collectionView addSubview:_shadow];
     
     _bottomLine = [UIView new];
@@ -86,11 +86,8 @@ static const CGFloat ItemSelectedFontSize = 18.0f;
 -(void)setSelectedIndex:(NSInteger)selectedIndex{
     
     _selectedIndex = selectedIndex;
-    
     //更新阴影位置
-    [UIView animateWithDuration:0.3 animations:^{
-        _shadow.frame = CGRectMake([_collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:_selectedIndex inSection:0]].frame.origin.x, self.bounds.size.height - 2, [self itemWidthOfIndexPath:[NSIndexPath indexPathForRow:_selectedIndex inSection:0]], 2);
-    }];
+    _shadow.frame = [self shadowRectOfIndex:_selectedIndex];
     //更新字体大小
     [_collectionView reloadData];
     //居中滚动标题
@@ -106,6 +103,44 @@ static const CGFloat ItemSelectedFontSize = 18.0f;
     self.backgroundColor = [UIColor clearColor];
     _bottomLine.hidden = true;
     _shadow.hidden = true;
+}
+
+//更新阴影位置
+-(void)setProgress:(CGFloat)progress{
+    _progress = progress;
+    if (_progress > 1) {//向右移动
+        if (_selectedIndex == _titles.count - 1) {return;}
+        
+        //获取当前和下一个位置的frame
+        CGRect currentRect = [self shadowRectOfIndex:_selectedIndex];
+        CGRect nextRect = [self shadowRectOfIndex:_selectedIndex + 1];
+        
+        //更新宽度
+        CGFloat width = currentRect.size.width + (progress - 1)*(nextRect.size.width - currentRect.size.width);
+        CGRect bounds = _shadow.bounds;
+        bounds.size.width = width;
+        _shadow.bounds = bounds;
+        
+        //更新位置
+        CGFloat distance = CGRectGetMidX(nextRect) - CGRectGetMidX(currentRect);
+        _shadow.center = CGPointMake(CGRectGetMidX(currentRect) + (progress - 1) * distance, _shadow.center.y);
+        
+    }else{//向左移动
+        if (_selectedIndex == 0) {return;}
+        //获取当前和上一个位置的frame
+        CGRect currentRect = [self shadowRectOfIndex:_selectedIndex];
+        CGRect nextRect = [self shadowRectOfIndex:_selectedIndex - 1];
+        
+        //更新宽度
+        CGFloat width = currentRect.size.width + (1 - progress)*(nextRect.size.width - currentRect.size.width);
+        CGRect bounds = _shadow.bounds;
+        bounds.size.width = width;
+        _shadow.bounds = bounds;
+        
+        //更新位置
+        CGFloat distance = CGRectGetMidX(nextRect) - CGRectGetMidX(currentRect);
+        _shadow.center = CGPointMake(CGRectGetMidX(currentRect) + (1 - progress) * distance, _shadow.center.y);
+    }
 }
 
 #pragma mark -
@@ -141,6 +176,11 @@ static const CGFloat ItemSelectedFontSize = 18.0f;
                                        attributes:attributes
                                           context:nil].size;
     return textSize.width;
+}
+
+
+-(CGRect)shadowRectOfIndex:(NSInteger)index{
+    return CGRectMake([_collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]].frame.origin.x, self.bounds.size.height - 2, [self itemWidthOfIndexPath:[NSIndexPath indexPathForRow:index inSection:0]], 2);
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{

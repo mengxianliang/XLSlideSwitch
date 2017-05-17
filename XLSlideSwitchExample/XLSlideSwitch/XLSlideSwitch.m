@@ -12,7 +12,7 @@
 //顶部ScrollView高度
 static const CGFloat SegmentHeight = 40.0f;
 
-@interface XLSlideSwitch ()<UIPageViewControllerDelegate,UIPageViewControllerDataSource,XLSlideSegmentDelegate>{
+@interface XLSlideSwitch ()<UIPageViewControllerDelegate,UIPageViewControllerDataSource,XLSlideSegmentDelegate,UIScrollViewDelegate>{
     
     XLSlideSegment *_segment;
     
@@ -45,6 +45,13 @@ static const CGFloat SegmentHeight = 40.0f;
     _pageVC.delegate = self;
     _pageVC.dataSource = self;
     [self addSubview:_pageVC.view];
+    
+    //设置ScrollView代理
+    for (UIScrollView *scrollView in _pageVC.view.subviews) {
+        if ([scrollView isKindOfClass:[UIScrollView class]]) {
+            scrollView.delegate = self;
+        }
+    }
 }
 
 -(void)showInViewController:(UIViewController *)viewController{
@@ -137,6 +144,15 @@ static const CGFloat SegmentHeight = 40.0f;
 }
 
 #pragma mark -
+#pragma mark ScrollViewDelegate
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    if (!scrollView.isDragging) {return;}
+    if (scrollView.contentOffset.x == scrollView.bounds.size.width) {return;}
+    CGFloat progress = scrollView.contentOffset.x/scrollView.bounds.size.width;
+    _segment.progress = progress;
+}
+
+#pragma mark -
 #pragma mark 其他方法
 
 -(void)switchToIndex:(NSInteger)index{
@@ -145,7 +161,6 @@ static const CGFloat SegmentHeight = 40.0f;
         _selectedIndex = index;
         [weekSelf performSwitchDelegateMethod];
     }];
-
 }
 
 //执行切换代理方法
