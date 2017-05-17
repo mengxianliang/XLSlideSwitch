@@ -4,7 +4,7 @@
 
 | 样式 | 正常显示标题 | 在NavigationBar上显示标题 |
 | ---- | ---- | --- |
-|标准样式| <img src="https://github.com/mengxianliang/XLSlideSwitch/blob/master/GIF/1-1.gif" width=300 height=539 /> | ![image](https://github.com/mengxianliang/XLSlideSwitch/blob/master/GIF/2-1.gif) |
+|标准样式| <img src="https://github.com/mengxianliang/XLSlideSwitch/blob/master/GIF/1-1.gif" width=250 height=449 /> | ![image](https://github.com/mengxianliang/XLSlideSwitch/blob/master/GIF/2-1.gif) |
 |Segmented样式| ![image](https://github.com/mengxianliang/XLSlideSwitch/blob/master/GIF/1-2.gif) | ![image](https://github.com/mengxianliang/XLSlideSwitch/blob/master/GIF/2-1.gif) |
 
 ### 使用方法：
