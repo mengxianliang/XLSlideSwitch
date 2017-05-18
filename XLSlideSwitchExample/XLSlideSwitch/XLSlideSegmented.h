@@ -32,4 +32,7 @@
 
 @property (nonatomic ,assign) CGFloat progress;
 
+//忽略动画
+@property (nonatomic ,assign) BOOL ignoreAnimation;
+
 @end

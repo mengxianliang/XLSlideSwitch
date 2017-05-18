@@ -11,10 +11,10 @@
 
 //item间隔
 static const CGFloat ItemMargin = 10.0f;
-//button标题正常大小
-static const CGFloat ItemNormalFontSize = 17.0f;
 //button标题选中大小
-static const CGFloat ItemSelectedFontSize = 18.0f;
+static const CGFloat ItemFontSize = 17.0f;
+//最大放大倍数
+static const CGFloat ItemMaxScale = 1.1;
 
 @interface XLSlideSegmented ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>{
     UICollectionView *_collectionView;
@@ -118,45 +118,60 @@ static const CGFloat ItemSelectedFontSize = 18.0f;
 //更新阴影位置
 -(void)setProgress:(CGFloat)progress{
     _progress = progress;
-    if (_progress > 1) {//向右移动
-        if (_selectedIndex == _titles.count - 1) {return;}
-        
-        //获取当前和下一个位置的frame
-        CGRect currentRect = [self shadowRectOfIndex:_selectedIndex];
-        CGRect nextRect = [self shadowRectOfIndex:_selectedIndex + 1];
-        
-        //如果在此时cell不在屏幕上 则不显示动画
-        if (CGRectGetMinX(currentRect) <= 0 || CGRectGetMinX(nextRect) <= 0) {return;}
-        
-        //更新宽度
-        CGFloat width = currentRect.size.width + (progress - 1)*(nextRect.size.width - currentRect.size.width);
-        CGRect bounds = _shadow.bounds;
-        bounds.size.width = width;
-        _shadow.bounds = bounds;
-        
-        //更新位置
-        CGFloat distance = CGRectGetMidX(nextRect) - CGRectGetMidX(currentRect);
-        _shadow.center = CGPointMake(CGRectGetMidX(currentRect) + (progress - 1) * distance, _shadow.center.y);
-        
-    }else{//向左移动
-        if (_selectedIndex == 0) {return;}
-        //获取当前和上一个位置的frame
-        CGRect currentRect = [self shadowRectOfIndex:_selectedIndex];
-        CGRect nextRect = [self shadowRectOfIndex:_selectedIndex - 1];
-        
-        //如果在此时cell不在屏幕上 则不显示动画
-        if (CGRectGetMinX(currentRect) <= 0 || CGRectGetMinX(nextRect) <= 0) {return;}
-        
-        //更新宽度
-        CGFloat width = currentRect.size.width + (1 - progress)*(nextRect.size.width - currentRect.size.width);
-        CGRect bounds = _shadow.bounds;
-        bounds.size.width = width;
-        _shadow.bounds = bounds;
-        
-        //更新位置
-        CGFloat distance = CGRectGetMidX(nextRect) - CGRectGetMidX(currentRect);
-        _shadow.center = CGPointMake(CGRectGetMidX(currentRect) + (1 - progress) * distance, _shadow.center.y);
-    }
+    //如果手动点击则不执行以下动画
+    if (_ignoreAnimation) {return;}
+    //更新阴影位置
+    [self updateShadowPosition:progress];
+    //更新标题颜色、大小
+    [self updateItem:progress];
+}
+
+#pragma mark -
+#pragma mark 执行阴影过渡动画
+//更新阴影位置
+- (void)updateShadowPosition:(CGFloat)progress{
+    
+    //progress > 1 向左滑动表格反之向右滑动表格
+    NSInteger nextIndex = progress > 1 ? _selectedIndex + 1 : _selectedIndex - 1;
+    if (nextIndex < 0 || nextIndex == _titles.count) {return;}
+    //获取当前阴影位置
+    CGRect currentRect = [self shadowRectOfIndex:_selectedIndex];
+    CGRect nextRect = [self shadowRectOfIndex:nextIndex];
+    //如果在此时cell不在屏幕上 则不显示动画
+    if (CGRectGetMinX(currentRect) <= 0 || CGRectGetMinX(nextRect) <= 0) {return;}
+    
+    progress = progress > 1 ? progress - 1 : 1 - progress;
+    
+    //更新宽度
+    CGFloat width = currentRect.size.width + progress*(nextRect.size.width - currentRect.size.width);
+    CGRect bounds = _shadow.bounds;
+    bounds.size.width = width;
+    _shadow.bounds = bounds;
+    
+    //更新位置
+    CGFloat distance = CGRectGetMidX(nextRect) - CGRectGetMidX(currentRect);
+    _shadow.center = CGPointMake(CGRectGetMidX(currentRect) + progress* distance, _shadow.center.y);
+}
+
+//更新标题颜色
+- (void)updateItem:(CGFloat)progress {
+    
+    NSInteger nextIndex = progress > 1 ? _selectedIndex + 1 : _selectedIndex - 1;
+    if (nextIndex < 0 || nextIndex == _titles.count) {return;}
+    
+    XLSlideSegmentedItem *currentItem = (XLSlideSegmentedItem *)[_collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:_selectedIndex inSection:0]];
+    XLSlideSegmentedItem *nextItem = (XLSlideSegmentedItem *)[_collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:nextIndex inSection:0]];
+    progress = progress > 1 ? progress - 1 : 1 - progress;
+    
+    //更新颜色
+    currentItem.textLabel.textColor = [self transformFromColor:_itemSelectedColor toColor:_itemNormalColor progress:progress];
+    nextItem.textLabel.textColor = [self transformFromColor:_itemNormalColor toColor:_itemSelectedColor progress:progress];
+    
+    //更新放大
+    CGFloat currentItemScale = ItemMaxScale - (ItemMaxScale - 1) * progress;
+    CGFloat nextItemScale = 1 + (ItemMaxScale - 1) * progress;
+    currentItem.transform = CGAffineTransformMakeScale(currentItemScale, currentItemScale);
+    nextItem.transform = CGAffineTransformMakeScale(nextItemScale, nextItemScale);
 }
 
 #pragma mark -
@@ -175,18 +190,23 @@ static const CGFloat ItemSelectedFontSize = 18.0f;
 {
     XLSlideSegmentedItem *item = [collectionView dequeueReusableCellWithReuseIdentifier:@"XLSlideSegmentedItem" forIndexPath:indexPath];
     item.textLabel.text = _titles[indexPath.row];
-    item.textLabel.font = indexPath.row == _selectedIndex ? [UIFont boldSystemFontOfSize:ItemSelectedFontSize] : [UIFont systemFontOfSize:ItemNormalFontSize];
+    item.textLabel.font = [UIFont boldSystemFontOfSize:ItemFontSize];
+    
+    CGFloat scale = indexPath.row == _selectedIndex ? ItemMaxScale : 1;
+    item.transform = CGAffineTransformMakeScale(scale, scale);
+
     item.textLabel.textColor = indexPath.row == _selectedIndex ? _itemSelectedColor : _itemNormalColor;
     return item;
 }
 
+//获取文字宽度
 -(CGFloat)itemWidthOfIndexPath:(NSIndexPath*)indexPath{
     NSString *title = _titles[indexPath.row];
     NSStringDrawingOptions opts = NSStringDrawingUsesLineFragmentOrigin |
     NSStringDrawingUsesFontLeading;
     NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
     [style setLineBreakMode:NSLineBreakByTruncatingTail];
-    NSDictionary *attributes = @{ NSFontAttributeName : [UIFont boldSystemFontOfSize:ItemSelectedFontSize], NSParagraphStyleAttributeName : style };
+    NSDictionary *attributes = @{ NSFontAttributeName : [UIFont boldSystemFontOfSize:ItemFontSize], NSParagraphStyleAttributeName : style };
     CGSize textSize = [title boundingRectWithSize:CGSizeMake(self.bounds.size.width, self.bounds.size.height)
                                           options:opts
                                        attributes:attributes
@@ -201,6 +221,21 @@ static const CGFloat ItemSelectedFontSize = 18.0f;
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     self.selectedIndex = indexPath.row;
+    _ignoreAnimation = true;
+}
+
+#pragma mark -
+#pragma mark 功能性方法
+// 颜色转换 progress 0~1
+- (UIColor *)transformFromColor:(UIColor*)fromColor toColor:(UIColor *)toColor progress:(CGFloat)progress {
+    progress = progress >= 1 ? 1 : progress;
+    progress = progress <= 0 ? 0 : progress;
+    const CGFloat * fromeComponents = CGColorGetComponents(fromColor.CGColor);
+    const CGFloat * toComponents = CGColorGetComponents(toColor.CGColor);
+    CGFloat r = fromeComponents[0]*(1 - progress) + toComponents[0]*progress;
+    CGFloat g = fromeComponents[1]*(1 - progress) + toComponents[1]*progress;
+    CGFloat b = fromeComponents[2]*(1 - progress) + toComponents[2]*progress;
+    return [UIColor colorWithRed:r green:g blue:b alpha:1];
 }
 
 @end

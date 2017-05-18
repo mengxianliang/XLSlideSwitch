@@ -146,10 +146,14 @@ static const CGFloat SegmentHeight = 40.0f;
 #pragma mark -
 #pragma mark ScrollViewDelegate
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    if (!scrollView.isDragging) {return;}
+//    if (!scrollView.isDragging) {return;}
     if (scrollView.contentOffset.x == scrollView.bounds.size.width) {return;}
     CGFloat progress = scrollView.contentOffset.x/scrollView.bounds.size.width;
     _segment.progress = progress;
+}
+
+-(void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView{
+    _segment.ignoreAnimation = false;
 }
 
 #pragma mark -
