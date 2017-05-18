@@ -16,7 +16,6 @@ static const CGFloat ItemNormalFontSize = 17.0f;
 //button标题选中大小
 static const CGFloat ItemSelectedFontSize = 18.0f;
 
-
 @interface XLSlideSegment ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>{
     UICollectionView *_collectionView;
     
@@ -86,12 +85,24 @@ static const CGFloat ItemSelectedFontSize = 18.0f;
 -(void)setSelectedIndex:(NSInteger)selectedIndex{
     
     _selectedIndex = selectedIndex;
-    //更新阴影位置
-    _shadow.frame = [self shadowRectOfIndex:_selectedIndex];
-    //更新字体大小
-    [_collectionView reloadData];
+    
+    //更新阴影位置（延迟是为了避免cell不在屏幕上显示时，造成的获取frame失败问题）
+    CGFloat rectX = [self shadowRectOfIndex:_selectedIndex].origin.x;
+    if (rectX <= 0) {
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.25 * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            _shadow.frame = [self shadowRectOfIndex:_selectedIndex];
+        });
+    }else{
+        _shadow.frame = [self shadowRectOfIndex:_selectedIndex];
+    }
+    
     //居中滚动标题
     [_collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:_selectedIndex inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:true];
+    
+    //更新字体大小
+    [_collectionView reloadData];
+    
     //执行代理方法
     if ([_delegate respondsToSelector:@selector(slideSegmentDidSelectedAtIndex:)]) {
         [_delegate slideSegmentDidSelectedAtIndex:_selectedIndex];
@@ -115,6 +126,9 @@ static const CGFloat ItemSelectedFontSize = 18.0f;
         CGRect currentRect = [self shadowRectOfIndex:_selectedIndex];
         CGRect nextRect = [self shadowRectOfIndex:_selectedIndex + 1];
         
+        //如果在此时cell不在屏幕上 则不显示动画
+        if (CGRectGetMinX(currentRect) <= 0 || CGRectGetMinX(nextRect) <= 0) {return;}
+        
         //更新宽度
         CGFloat width = currentRect.size.width + (progress - 1)*(nextRect.size.width - currentRect.size.width);
         CGRect bounds = _shadow.bounds;
@@ -130,6 +144,9 @@ static const CGFloat ItemSelectedFontSize = 18.0f;
         //获取当前和上一个位置的frame
         CGRect currentRect = [self shadowRectOfIndex:_selectedIndex];
         CGRect nextRect = [self shadowRectOfIndex:_selectedIndex - 1];
+        
+        //如果在此时cell不在屏幕上 则不显示动画
+        if (CGRectGetMinX(currentRect) <= 0 || CGRectGetMinX(nextRect) <= 0) {return;}
         
         //更新宽度
         CGFloat width = currentRect.size.width + (1 - progress)*(nextRect.size.width - currentRect.size.width);
