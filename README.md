@@ -10,8 +10,9 @@
 
 ### 原理简介：
 
-*顶部的标题栏是利用UICollectionview实现的；底部视图控制器的切换是利用*UIPageViewController*实现的。*
-*最大化的优化内存的使用，每个ChildViewController都是随着滚动加载的，避免了同时加载引起的UI卡顿。*
+顶部的标题栏是利用*UICollectionview*实现的；底部视图控制器的切换是利用*UIPageViewController*实现的。
+<br>
+最大化的优化内存的使用，每个*ChildViewController*都是随着滚动加载的，避免了同时加载引起的UI卡顿。
 
 ### 使用方法：
 
