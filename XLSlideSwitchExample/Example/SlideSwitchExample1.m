@@ -7,9 +7,10 @@
 //
 
 #import "SlideSwitchExample1.h"
-#import "TestViewController.h"
+#import "TableViewController.h"
+#import "CollectionViewController.h"
+
 #import "XLSlideSwitch.h"
-#import "PushTestViewController.h"
 
 @interface SlideSwitchExample1 ()<XLSlideSwitchDelegate>
 {
@@ -31,10 +32,9 @@
     //要显示的标题
     NSArray *titles = @[@"今天",@"是个",@"好日子",@"心想的",@"事儿",@"都能成",@"明天",@"是个",@"好日子",@"打开了家门",@"咱迎春风",@"~~~"];
     //创建需要展示的ViewController
-    NSMutableArray *viewControllers = [NSMutableArray new];
-    for (int i = 0 ; i<titles.count; i++) {
-        TestViewController *vc = [TestViewController new];
-        vc.title = titles[i];
+    NSMutableArray *viewControllers = [[NSMutableArray alloc] init];
+    for (NSInteger i = 0 ; i<titles.count; i++) {
+        UIViewController *vc = [self viewControllerOfIndex:i];
         [viewControllers addObject:vc];
     }
     //创建滚动视图
@@ -53,6 +53,23 @@
 
 -(void)slideSwitchDidselectAtIndex:(NSUInteger)index{
     NSLog(@"切换到了第 -- %zd -- 个视图",index);
+}
+
+#pragma mark -
+#pragma mark 自定义方法
+- (UIViewController *)viewControllerOfIndex:(NSInteger)index{
+    UIViewController *vc;
+    switch (index%2) {
+        case 0:
+            vc = [[TableViewController alloc] init];
+            break;
+        case 1:
+            vc = [[CollectionViewController alloc] init];
+            break;
+        default:
+            break;
+    }
+    return vc;
 }
 
 - (void)didReceiveMemoryWarning {

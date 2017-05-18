@@ -6,8 +6,8 @@
 //  Copyright © 2017年 MengXianLiang. All rights reserved.
 //
 
-#import "XLSlideSegment.h"
-#import "XLSlideSegmentItem.h"
+#import "XLSlideSegmented.h"
+#import "XLSlideSegmentedItem.h"
 
 //item间隔
 static const CGFloat ItemMargin = 10.0f;
@@ -16,7 +16,7 @@ static const CGFloat ItemNormalFontSize = 17.0f;
 //button标题选中大小
 static const CGFloat ItemSelectedFontSize = 18.0f;
 
-@interface XLSlideSegment ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>{
+@interface XLSlideSegmented ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>{
     UICollectionView *_collectionView;
     
     UIView *_bottomLine;
@@ -25,7 +25,7 @@ static const CGFloat ItemSelectedFontSize = 18.0f;
 }
 @end
 
-@implementation XLSlideSegment
+@implementation XLSlideSegmented
 
 -(instancetype)init{
     if (self = [super init]) {
@@ -49,7 +49,7 @@ static const CGFloat ItemSelectedFontSize = 18.0f;
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
     _collectionView.backgroundColor = [UIColor clearColor];
-    [_collectionView registerClass:[XLSlideSegmentItem class] forCellWithReuseIdentifier:@"XLSlideSegmentItem"];
+    [_collectionView registerClass:[XLSlideSegmentedItem class] forCellWithReuseIdentifier:@"XLSlideSegmentedItem"];
     _collectionView.showsHorizontalScrollIndicator = false;
     [self addSubview:_collectionView];
     
@@ -89,8 +89,7 @@ static const CGFloat ItemSelectedFontSize = 18.0f;
     //更新阴影位置（延迟是为了避免cell不在屏幕上显示时，造成的获取frame失败问题）
     CGFloat rectX = [self shadowRectOfIndex:_selectedIndex].origin.x;
     if (rectX <= 0) {
-        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.25 * NSEC_PER_SEC);
-        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.25 * NSEC_PER_SEC), dispatch_get_main_queue(), ^(void){
             _shadow.frame = [self shadowRectOfIndex:_selectedIndex];
         });
     }else{
@@ -174,7 +173,7 @@ static const CGFloat ItemSelectedFontSize = 18.0f;
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    XLSlideSegmentItem *item = [collectionView dequeueReusableCellWithReuseIdentifier:@"XLSlideSegmentItem" forIndexPath:indexPath];
+    XLSlideSegmentedItem *item = [collectionView dequeueReusableCellWithReuseIdentifier:@"XLSlideSegmentedItem" forIndexPath:indexPath];
     item.textLabel.text = _titles[indexPath.row];
     item.textLabel.font = indexPath.row == _selectedIndex ? [UIFont boldSystemFontOfSize:ItemSelectedFontSize] : [UIFont systemFontOfSize:ItemNormalFontSize];
     item.textLabel.textColor = indexPath.row == _selectedIndex ? _itemSelectedColor : _itemNormalColor;

@@ -14,7 +14,7 @@
 
 @end
 
-@interface XLSlideSegment : UIView
+@interface XLSlideSegmented : UIView
 
 @property (nonatomic ,assign) NSInteger selectedIndex;
 

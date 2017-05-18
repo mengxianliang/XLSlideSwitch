@@ -6,9 +6,9 @@
 //  Copyright © 2017年 MengXianLiang. All rights reserved.
 //
 
-#import "XLSlideSegmentItem.h"
+#import "XLSlideSegmentedItem.h"
 
-@implementation XLSlideSegmentItem
+@implementation XLSlideSegmentedItem
 
 -(instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {

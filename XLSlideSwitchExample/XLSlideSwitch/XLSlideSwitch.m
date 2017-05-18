@@ -7,14 +7,14 @@
 //
 
 #import "XLSlideSwitch.h"
-#import "XLSlideSegment.h"
+#import "XLSlideSegmented.h"
 
 //顶部ScrollView高度
 static const CGFloat SegmentHeight = 40.0f;
 
 @interface XLSlideSwitch ()<UIPageViewControllerDelegate,UIPageViewControllerDataSource,XLSlideSegmentDelegate,UIScrollViewDelegate>{
     
-    XLSlideSegment *_segment;
+    XLSlideSegmented *_segment;
     
     UIPageViewController *_pageVC;
 }
@@ -34,7 +34,7 @@ static const CGFloat SegmentHeight = 40.0f;
 -(void)buildUI{
     [self addSubview:[UIView new]];
     //添加分段选择器
-    _segment = [[XLSlideSegment alloc] init];
+    _segment = [[XLSlideSegmented alloc] init];
     _segment.frame = CGRectMake(0, 0, self.bounds.size.width, SegmentHeight);
     _segment.delegate = self;
     [self addSubview:_segment];

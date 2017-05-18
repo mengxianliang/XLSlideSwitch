@@ -7,9 +7,9 @@
 //
 
 #import "SegmentedSlideSwitchExample2.h"
-#import "TestViewController.h"
+#import "TableViewController.h"
+#import "CollectionViewController.h"
 #import "XLSegmentedSlideSwitch.h"
-#import "PushTestViewController.h"
 
 @interface SegmentedSlideSwitchExample2 ()<XLSlideSwitchDelegate>
 {
@@ -31,8 +31,7 @@
     NSMutableArray *viewControllers = [NSMutableArray new];
     NSArray *titles = @[@"今天",@"是个",@"好日子"];
     for (int i = 0 ; i<titles.count; i++) {
-        TestViewController *vc = [TestViewController new];
-        vc.title = titles[i];
+        UIViewController *vc = [self viewControllerOfIndex:i];
         [viewControllers addObject:vc];
     }
     _slideSwitch = [[XLSegmentedSlideSwitch alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 64) Titles:titles viewControllers:viewControllers];
@@ -46,6 +45,25 @@
 -(void)slideSwitchDidselectAtIndex:(NSUInteger)index{
     NSLog(@"切换到了第 -- %zd -- 个视图",index);
 }
+
+#pragma mark -
+#pragma mark 自定义方法
+- (UIViewController *)viewControllerOfIndex:(NSInteger)index{
+    UIViewController *vc;
+    switch (index%2) {
+        case 0:
+            vc = [[TableViewController alloc] init];
+            break;
+        case 1:
+            vc = [[CollectionViewController alloc] init];
+            break;
+        default:
+            break;
+    }
+    return vc;
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     

@@ -7,7 +7,6 @@
 //
 
 #import "XLSegmentedSlideSwitch.h"
-#import "XLSlideSegment.h"
 
 //顶部ScrollView高度
 static const CGFloat SegmentHeight = 40.0f;

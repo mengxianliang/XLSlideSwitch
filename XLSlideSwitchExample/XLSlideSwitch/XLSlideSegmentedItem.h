@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XLSlideSegmentItem : UICollectionViewCell
+@interface XLSlideSegmentedItem : UICollectionViewCell
 
 @property (nonatomic, copy) UILabel *textLabel;
 

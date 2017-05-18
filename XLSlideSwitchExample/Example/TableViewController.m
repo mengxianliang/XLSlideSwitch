@@ -1,21 +1,21 @@
 //
-//  TestViewController.m
-//  XLSlideSwitchDemo
+//  TableViewController.m
+//  XLSlideSwitchExample
 //
-//  Created by Apple on 2017/1/4.
-//  Copyright © 2017年 Apple. All rights reserved.
+//  Created by MengXianLiang on 2017/5/18.
+//  Copyright © 2017年 MengXianLiang. All rights reserved.
 //
 
-#import "TestViewController.h"
-#import "PushTestViewController.h"
+#import "TableViewController.h"
+#import "CollectionViewController.h"
 
-@interface TestViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface TableViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     UITableView *_tableView;
 }
 @end
 
-@implementation TestViewController
+@implementation TableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -48,7 +48,7 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 50;
+    return 60;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -62,16 +62,19 @@
     NSString* cellIdentifier = @"cell";
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-    cell.textLabel.text = self.title;
+    cell.textLabel.text = [NSString stringWithFormat:@"\t第%zd行",indexPath.row];
+    cell.detailTextLabel.text = @"点击跳转新界面";
+    cell.detailTextLabel.textColor = RedColor;
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    PushTestViewController *pushVC = [[PushTestViewController alloc] init];
-    [self.navigationController pushViewController:pushVC animated:true];
+    CollectionViewController *vc = [[CollectionViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:true];
 }
 
 - (void)didReceiveMemoryWarning {
