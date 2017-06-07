@@ -27,14 +27,14 @@ static const CGFloat ItemMaxScale = 1.1;
 
 @implementation XLSlideSegmented
 
--(instancetype)init{
+- (instancetype)init {
     if (self = [super init]) {
         [self buildUI];
     }
     return self;
 }
 
--(void)buildUI{
+- (void)buildUI {
     
     self.backgroundColor = [UIColor colorWithRed:247.0f/255.0f green:246.0f/255.0f blue:245.0f/255.0f alpha:1];
     
@@ -64,7 +64,7 @@ static const CGFloat ItemMaxScale = 1.1;
     
 }
 
--(void)layoutSubviews{
+- (void)layoutSubviews {
     [super layoutSubviews];
     _collectionView.frame = self.bounds;
     //如果标题过少 自动居中
@@ -82,7 +82,7 @@ static const CGFloat ItemMaxScale = 1.1;
 
 #pragma mark -
 #pragma mark Setter
--(void)setSelectedIndex:(NSInteger)selectedIndex{
+- (void)setSelectedIndex:(NSInteger)selectedIndex {
     
     _selectedIndex = selectedIndex;
     
@@ -108,7 +108,7 @@ static const CGFloat ItemMaxScale = 1.1;
     }
 }
 
--(void)setShowTitlesInNavBar:(BOOL)showTitlesInNavBar{
+- (void)setShowTitlesInNavBar:(BOOL)showTitlesInNavBar {
     _showTitlesInNavBar = showTitlesInNavBar;
     self.backgroundColor = [UIColor clearColor];
     _bottomLine.hidden = true;
@@ -116,7 +116,7 @@ static const CGFloat ItemMaxScale = 1.1;
 }
 
 //更新阴影位置
--(void)setProgress:(CGFloat)progress{
+- (void)setProgress:(CGFloat)progress {
     _progress = progress;
     //如果手动点击则不执行以下动画
     if (_ignoreAnimation) {return;}

@@ -10,20 +10,20 @@
 
 @implementation XLSlideSegmentedItem
 
--(instancetype)initWithFrame:(CGRect)frame{
+- (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         [self buildUI];
     }
     return self;
 }
 
--(void)buildUI{
+- (void)buildUI {
     _textLabel = [[UILabel alloc] init];
     _textLabel.textAlignment = NSTextAlignmentCenter;
     [self.contentView addSubview:_textLabel];
 }
 
--(void)layoutSubviews{
+- (void)layoutSubviews {
     [super layoutSubviews];
     _textLabel.frame = self.bounds;
 }
