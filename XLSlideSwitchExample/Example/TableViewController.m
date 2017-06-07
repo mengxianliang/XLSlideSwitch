@@ -67,7 +67,7 @@
     }
     cell.textLabel.text = [NSString stringWithFormat:@"\t第%zd行",indexPath.row];
     cell.detailTextLabel.text = @"点击跳转新界面";
-    cell.detailTextLabel.textColor = RedColor;
+    cell.detailTextLabel.textColor = self.navigationController.navigationBar.tintColor;
     return cell;
 }
 

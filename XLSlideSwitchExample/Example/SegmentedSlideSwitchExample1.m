@@ -37,7 +37,7 @@
     }
     _slideSwitch = [[XLSegmentedSlideSwitch alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 64) Titles:titles viewControllers:viewControllers];
     _slideSwitch.delegate = self;
-    _slideSwitch.tintColor = RedColor;
+    _slideSwitch.tintColor = self.navigationController.navigationBar.tintColor;
     [_slideSwitch showInViewController:self];
 }
 

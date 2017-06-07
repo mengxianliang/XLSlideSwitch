@@ -89,8 +89,7 @@
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
-        cell.textLabel.textColor = GrayColor;
-        cell.detailTextLabel.textColor = RedColor;
+        cell.detailTextLabel.textColor = self.navigationController.navigationBar.tintColor;
     }
     cell.textLabel.text = [self titles][indexPath.section][indexPath.row];
     cell.detailTextLabel.text = [self subTitles][indexPath.section][indexPath.row];

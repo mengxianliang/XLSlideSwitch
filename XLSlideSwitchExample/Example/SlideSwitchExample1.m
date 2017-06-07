@@ -42,8 +42,8 @@
     //设置代理
     _slideSwitch.delegate = self;
     //设置按钮选中和未选中状态的标题颜色
-    _slideSwitch.itemSelectedColor = RedColor;
-    _slideSwitch.itemNormalColor = GrayColor;
+    _slideSwitch.itemSelectedColor = self.navigationController.navigationBar.tintColor;
+    _slideSwitch.itemNormalColor = [UIColor darkGrayColor];
     //显示方法
     [_slideSwitch showInViewController:self];
 }
