@@ -182,7 +182,7 @@ static const CGFloat ItemMaxScale = 1.1;
     return _titles.count;
 }
 
--(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return CGSizeMake([self itemWidthOfIndexPath:indexPath], _collectionView.bounds.size.height);
 }
 

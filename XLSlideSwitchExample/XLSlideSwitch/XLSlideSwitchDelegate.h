@@ -14,6 +14,6 @@
 /**
  * 切换位置后的代理方法
  */
-- (void)slideSwitchDidselectAtIndex:(NSUInteger)index;
+- (void)slideSwitchDidselectAtIndex:(NSInteger)index;
 
 @end
