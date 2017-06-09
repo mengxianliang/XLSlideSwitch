@@ -9,8 +9,7 @@
 #import "CollectionViewController.h"
 #import "TableViewController.h"
 
-@interface CollectionViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
-{
+@interface CollectionViewController ()<UICollectionViewDelegate,UICollectionViewDataSource> {
     UICollectionView *_collectionView;
 }
 @end
@@ -22,7 +21,7 @@
     [self buildUI];
 }
 
--(void)buildUI{
+- (void)buildUI {
     
     self.view.backgroundColor = [UIColor whiteColor];
     CGFloat margin = 10.0f;
@@ -39,7 +38,7 @@
     [self.view addSubview:_collectionView];
 }
 
--(void)viewDidLayoutSubviews{
+- (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     _collectionView.frame = self.view.bounds;
 }
@@ -47,19 +46,18 @@
 #pragma mark -
 #pragma mark CollectionViewDataSource
 
--(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return 30;
 }
 
--(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellId = @"UICollectionViewCell";
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
     cell.backgroundColor = self.navigationController.navigationBar.tintColor;
     return cell;
 }
 
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     TableViewController *vc = [[TableViewController alloc] init];
     [self.navigationController pushViewController:vc animated:true];
     

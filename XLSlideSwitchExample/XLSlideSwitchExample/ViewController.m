@@ -14,8 +14,7 @@
 #import "SegmentedSlideSwitchExample1.h"
 #import "SegmentedSlideSwitchExample2.h"
 
-@interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
-{
+@interface ViewController ()<UITableViewDelegate,UITableViewDataSource> {
     UITableView *_tableView;
 }
 @end
@@ -27,15 +26,13 @@
     [self buildUI];
 }
 
--(void)buildUI
-{
+- (void)buildUI {
     self.title = @"XLSlideSwitchExample";
     self.view.backgroundColor = [UIColor whiteColor];
     [self buildTable];
 }
 
--(void)buildTable
-{
+- (void)buildTable {
     _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -47,44 +44,36 @@
 #pragma mark -
 #pragma mark TableViewDelegate&DataSource
 
--(NSArray *)titles
-{
+- (NSArray *)titles {
     return @[@[@"SlideSwitchExample1",@"SlideSwitchExample2"],@[@"SegmentedSlideSwitchExample1",@"SegmentedSlideSwitchExample2"]];
 }
 
--(NSArray *)subTitles
-{
+- (NSArray *)subTitles {
     return @[@[@"正常显示",@"标题在NavigationBar上显示"],@[@"正常显示",@"标题在NavigationBar上显示"]];
 }
 
--(NSArray*)sectionTitles
-{
+- (NSArray*)sectionTitles {
     return @[@"XLSlideSiwtch",@"XLSegmentedSlideSiwtch"];
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 55;
 }
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     NSArray *arr = [self titles][section];
     return arr.count;
 }
 
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     return [self sectionTitles][section];
 }
 
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return [self sectionTitles].count;
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString* cellIdentifier = @"cell";
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {
@@ -96,8 +85,7 @@
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *title = [self titles][indexPath.section][indexPath.row];
     if (indexPath.section == 0) {
         switch (indexPath.row) {

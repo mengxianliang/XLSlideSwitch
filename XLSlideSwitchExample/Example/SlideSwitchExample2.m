@@ -26,8 +26,7 @@
     [self buildUI];
 }
 
--(void)buildUI
-{
+- (void)buildUI {
     self.view.backgroundColor = [UIColor whiteColor];
     
     //要显示的标题

@@ -11,8 +11,7 @@
 #import "CollectionViewController.h"
 #import "XLSegmentedSlideSwitch.h"
 
-@interface SegmentedSlideSwitchExample2 ()<XLSlideSwitchDelegate>
-{
+@interface SegmentedSlideSwitchExample2 ()<XLSlideSwitchDelegate> {
     XLSegmentedSlideSwitch *_slideSwitch;
 }
 @end
@@ -24,8 +23,7 @@
     [self buildUI];
 }
 
--(void)buildUI
-{
+- (void)buildUI {
     self.view.backgroundColor = [UIColor whiteColor];
     
     NSMutableArray *viewControllers = [NSMutableArray new];
@@ -48,7 +46,7 @@
 
 #pragma mark -
 #pragma mark 自定义方法
-- (UIViewController *)viewControllerOfIndex:(NSInteger)index{
+- (UIViewController *)viewControllerOfIndex:(NSInteger)index {
     UIViewController *vc;
     switch (index%2) {
         case 0:

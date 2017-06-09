@@ -12,8 +12,7 @@
 
 #import "XLSlideSwitch.h"
 
-@interface SlideSwitchExample1 ()<XLSlideSwitchDelegate>
-{
+@interface SlideSwitchExample1 ()<XLSlideSwitchDelegate> {
     XLSlideSwitch *_slideSwitch;
 }
 @end
@@ -25,8 +24,7 @@
     [self buildUI];
 }
 
--(void)buildUI
-{
+- (void)buildUI {
     self.view.backgroundColor = [UIColor whiteColor];
     
     //要显示的标题
@@ -57,7 +55,7 @@
 
 #pragma mark -
 #pragma mark 自定义方法
-- (UIViewController *)viewControllerOfIndex:(NSInteger)index{
+- (UIViewController *)viewControllerOfIndex:(NSInteger)index {
     UIViewController *vc;
     switch (index%2) {
         case 0:
