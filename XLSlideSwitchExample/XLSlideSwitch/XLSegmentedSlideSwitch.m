@@ -21,7 +21,7 @@ static const CGFloat SegmentHeight = 40.0f;
 
 @implementation XLSegmentedSlideSwitch
 
--(instancetype)initWithFrame:(CGRect)frame Titles:(NSArray <NSString *>*)titles viewControllers:(NSArray <UIViewController *>*)viewControllers{
+- (instancetype)initWithFrame:(CGRect)frame Titles:(NSArray <NSString *>*)titles viewControllers:(NSArray <UIViewController *>*)viewControllers{
     if (self = [super initWithFrame:frame]) {
         [self buildUI];
         self.titles = titles;
@@ -30,7 +30,7 @@ static const CGFloat SegmentHeight = 40.0f;
     return self;
 }
 
--(void)buildUI{
+- (void)buildUI {
     [self addSubview:[UIView new]];
     //添加分段选择器
     _segment = [[UISegmentedControl alloc] initWithFrame:CGRectMake(5, 5, self.bounds.size.width - 10, SegmentHeight - 10)];
@@ -45,12 +45,12 @@ static const CGFloat SegmentHeight = 40.0f;
     [self addSubview:_pageVC.view];
 }
 
--(void)showInViewController:(UIViewController *)viewController{
+- (void)showInViewController:(UIViewController *)viewController {
     [viewController addChildViewController:_pageVC];
     [viewController.view addSubview:self];
 }
 
--(void)showInNavigationController:(UINavigationController *)navigationController{
+- (void)showInNavigationController:(UINavigationController *)navigationController {
     [navigationController.topViewController.view addSubview:self];
     [navigationController.topViewController addChildViewController:_pageVC];
     navigationController.topViewController.navigationItem.titleView = _segment;
@@ -58,7 +58,7 @@ static const CGFloat SegmentHeight = 40.0f;
     _segment.backgroundColor = [UIColor clearColor];
 }
 
--(void)willMoveToSuperview:(UIView *)newSuperview{
+- (void)willMoveToSuperview:(UIView *)newSuperview {
     [super willMoveToSuperview:newSuperview];
     [self switchToIndex:_selectedIndex];
 }
@@ -66,11 +66,11 @@ static const CGFloat SegmentHeight = 40.0f;
 #pragma mark -
 #pragma mark Setter&Getter
 
--(void)setViewControllers:(NSArray *)viewControllers{
+- (void)setViewControllers:(NSArray *)viewControllers {
     _viewControllers = viewControllers;
 }
 
--(void)setTitles:(NSArray *)titles{
+- (void)setTitles:(NSArray *)titles {
     
     _titles = titles;
     for (NSString *title in _titles) {
@@ -79,11 +79,11 @@ static const CGFloat SegmentHeight = 40.0f;
     _segment.selectedSegmentIndex = 0;
 }
 
--(void)setTintColor:(UIColor *)tintColor{
+- (void)setTintColor:(UIColor *)tintColor {
     _segment.tintColor = tintColor;
 }
 
--(void)setSelectedIndex:(NSInteger)selectedIndex{
+- (void)setSelectedIndex:(NSInteger)selectedIndex {
     _selectedIndex = selectedIndex;
     _segment.selectedSegmentIndex = _selectedIndex;
     [self switchToIndex:_selectedIndex];
@@ -92,7 +92,7 @@ static const CGFloat SegmentHeight = 40.0f;
 #pragma mark -
 #pragma mark SlideSegmentDelegate
 
--(void)segmentValueChanged:(UISegmentedControl *)segment{
+- (void)segmentValueChanged:(UISegmentedControl *)segment {
     NSInteger index = segment.selectedSegmentIndex;
     [self switchToIndex:index];
 }
@@ -130,7 +130,7 @@ static const CGFloat SegmentHeight = 40.0f;
 #pragma mark -
 #pragma mark 其他方法
 
--(void)switchToIndex:(NSInteger)index{
+- (void)switchToIndex:(NSInteger)index {
     __weak __typeof(self)weekSelf = self;
     [_pageVC setViewControllers:@[_viewControllers[index]] direction:index<_selectedIndex animated:YES completion:^(BOOL finished) {
         _selectedIndex = index;
@@ -139,7 +139,7 @@ static const CGFloat SegmentHeight = 40.0f;
 }
 
 //执行切换代理方法
--(void)performSwitchDelegateMethod{
+- (void)performSwitchDelegateMethod {
     if ([_delegate respondsToSelector:@selector(slideSwitchDidselectAtIndex:)]) {
         [_delegate slideSwitchDidselectAtIndex:_selectedIndex];
     }

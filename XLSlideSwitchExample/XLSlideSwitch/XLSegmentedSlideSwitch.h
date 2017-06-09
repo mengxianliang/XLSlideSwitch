@@ -13,23 +13,23 @@
 /**
  * 需要显示的视图
  */
-@property (nonatomic ,strong) NSArray *viewControllers;
+@property (nonatomic, strong) NSArray *viewControllers;
 /**
  * 标题
  */
-@property (nonatomic ,strong) NSArray *titles;
+@property (nonatomic, strong) NSArray *titles;
 /**
  * 选中位置
  */
-@property (nonatomic ,assign) NSInteger selectedIndex;
+@property (nonatomic, assign) NSInteger selectedIndex;
 /**
  * Segmented高亮颜色
  */
-@property (nonatomic ,strong) UIColor *tintColor;
+@property (nonatomic, strong) UIColor *tintColor;
 /**
  代理方法
  */
-@property (nonatomic ,weak) id <XLSlideSwitchDelegate>delegate;
+@property (nonatomic, weak) id <XLSlideSwitchDelegate>delegate;
 /**
  * 初始化方法
  */

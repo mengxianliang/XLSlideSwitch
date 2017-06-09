@@ -129,7 +129,7 @@ static const CGFloat ItemMaxScale = 1.1;
 #pragma mark -
 #pragma mark 执行阴影过渡动画
 //更新阴影位置
-- (void)updateShadowPosition:(CGFloat)progress{
+- (void)updateShadowPosition:(CGFloat)progress {
     
     //progress > 1 向左滑动表格反之向右滑动表格
     NSInteger nextIndex = progress > 1 ? _selectedIndex + 1 : _selectedIndex - 1;
@@ -177,17 +177,15 @@ static const CGFloat ItemMaxScale = 1.1;
 #pragma mark -
 #pragma mark CollectionViewDelegate
 
--(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return _titles.count;
 }
 
--(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return CGSizeMake([self itemWidthOfIndexPath:indexPath], _collectionView.bounds.size.height);
 }
 
--(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     XLSlideSegmentedItem *item = [collectionView dequeueReusableCellWithReuseIdentifier:@"XLSlideSegmentedItem" forIndexPath:indexPath];
     item.textLabel.text = _titles[indexPath.row];
     item.textLabel.font = [UIFont boldSystemFontOfSize:ItemFontSize];
@@ -200,7 +198,7 @@ static const CGFloat ItemMaxScale = 1.1;
 }
 
 //获取文字宽度
--(CGFloat)itemWidthOfIndexPath:(NSIndexPath*)indexPath{
+- (CGFloat)itemWidthOfIndexPath:(NSIndexPath*)indexPath {
     NSString *title = _titles[indexPath.row];
     NSStringDrawingOptions opts = NSStringDrawingUsesLineFragmentOrigin |
     NSStringDrawingUsesFontLeading;
@@ -215,11 +213,11 @@ static const CGFloat ItemMaxScale = 1.1;
 }
 
 
--(CGRect)shadowRectOfIndex:(NSInteger)index{
+- (CGRect)shadowRectOfIndex:(NSInteger)index {
     return CGRectMake([_collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0]].frame.origin.x, self.bounds.size.height - 2, [self itemWidthOfIndexPath:[NSIndexPath indexPathForRow:index inSection:0]], 2);
 }
 
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     self.selectedIndex = indexPath.row;
     _ignoreAnimation = true;
 }
