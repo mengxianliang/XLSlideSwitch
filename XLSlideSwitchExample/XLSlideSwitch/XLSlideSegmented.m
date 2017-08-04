@@ -226,6 +226,11 @@ static const CGFloat ItemMaxScale = 1.1;
 #pragma mark 功能性方法
 - (UIColor *)transformFromColor:(UIColor*)fromColor toColor:(UIColor *)toColor progress:(CGFloat)progress {
     
+    if (!fromColor || !toColor) {
+        NSLog(@"Warning !!! color is nil");
+        return [UIColor blackColor];
+    }
+    
     progress = progress >= 1 ? 1 : progress;
     
     progress = progress <= 0 ? 0 : progress;
