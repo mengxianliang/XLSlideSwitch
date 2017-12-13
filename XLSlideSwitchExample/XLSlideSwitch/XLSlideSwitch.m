@@ -103,9 +103,9 @@ static const CGFloat SegmentHeight = 40.0f;
     _segment.hideShadow = _hideShadow;
 }
 
-- (void)setCustomMargin:(CGFloat)customMargin {
-    _customMargin = customMargin;
-    _segment.customMargin = customMargin;
+- (void)setCustomTitleSpacing:(CGFloat)customTitleSpacing {
+    _customTitleSpacing = customTitleSpacing;
+    _segment.customTitleSpacing = customTitleSpacing;
 }
 
 #pragma mark -

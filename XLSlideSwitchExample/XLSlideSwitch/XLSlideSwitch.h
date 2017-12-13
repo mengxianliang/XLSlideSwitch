@@ -38,7 +38,7 @@
 /**
  * 用户自定义标题间距
  */
-@property (nonatomic, assign) CGFloat customMargin;
+@property (nonatomic, assign) CGFloat customTitleSpacing;
 
 /**
  * 代理方法

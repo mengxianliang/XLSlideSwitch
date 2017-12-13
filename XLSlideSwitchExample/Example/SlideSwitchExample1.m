@@ -43,7 +43,7 @@
     _slideSwitch.itemSelectedColor = self.navigationController.navigationBar.tintColor;
     _slideSwitch.itemNormalColor = [UIColor darkGrayColor];
     //标题横向间距
-    _slideSwitch.customMargin = 30;
+    _slideSwitch.customTitleSpacing = 30;
     //显示方法
     [_slideSwitch showInViewController:self];
 }

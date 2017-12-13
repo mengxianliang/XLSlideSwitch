@@ -125,9 +125,10 @@ static const CGFloat ItemMaxScale = 1.1;
     [self updateItem:progress];
 }
 
-- (void)setCustomMargin:(CGFloat)customMargin {
-    _customMargin = customMargin;
+- (void)setCustomTitleSpacing:(CGFloat)customTitleSpacing {
+    _customTitleSpacing = customTitleSpacing;
     [_collectionView reloadData];
+
 }
 
 #pragma mark -
@@ -182,15 +183,15 @@ static const CGFloat ItemMaxScale = 1.1;
 #pragma mark CollectionViewDelegate
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
-    if (_customMargin) {
-        return _customMargin;
+    if (_customTitleSpacing) {
+        return _customTitleSpacing;
     }
     return ItemMargin;
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
-    if (_customMargin) {
-        return _customMargin;
+    if (_customTitleSpacing) {
+        return _customTitleSpacing;
     }
     return ItemMargin;
 }
