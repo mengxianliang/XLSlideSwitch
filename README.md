@@ -56,4 +56,13 @@ _slideSwitch.itemNormalColor = GrayColor;
 }
 ```
 
+#### 4、辅助功能
+1）、设置标题横向间距，默认横向间距为10，可自定义横向间距，设置后效果如下
+![image](https://github.com/mengxianliang/XLSlideSwitch/blob/master/GIF/3.png)
+代码：
+```objc
+_slideSwitch.customTitleSpacing = 60;
+```
+
+
 ### 个人开发过的UI工具集合 [XLUIKit](https://github.com/mengxianliang/XLUIKit)
