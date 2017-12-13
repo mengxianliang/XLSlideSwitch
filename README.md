@@ -61,13 +61,13 @@ _slideSwitch.itemNormalColor = GrayColor;
 ```objc
 _slideSwitch.customTitleSpacing = 60;
 ```
-<img src="https://github.com/mengxianliang/XLSlideSwitch/blob/master/GIF/3.png" width=250 height=191 />
+<img src="https://github.com/mengxianliang/XLSlideSwitch/blob/master/GIF/3.png" width=300 height=229 />
 
 2、设置Segmented横向缩进
 ```objc
 _slideSwitch.horizontalInset = 50;
 ```
-<img src="https://github.com/mengxianliang/XLSlideSwitch/blob/master/GIF/4.png" width=250 height=191 />
+<img src="https://github.com/mengxianliang/XLSlideSwitch/blob/master/GIF/4.png" width=300 height=229 />
 
 
 
