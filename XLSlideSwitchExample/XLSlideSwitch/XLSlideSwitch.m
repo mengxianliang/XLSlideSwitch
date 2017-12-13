@@ -103,6 +103,11 @@ static const CGFloat SegmentHeight = 40.0f;
     _segment.hideShadow = _hideShadow;
 }
 
+- (void)setCustomMargin:(CGFloat)customMargin {
+    _customMargin = customMargin;
+    _segment.customMargin = customMargin;
+}
+
 #pragma mark -
 #pragma mark SlideSegmentDelegate
 

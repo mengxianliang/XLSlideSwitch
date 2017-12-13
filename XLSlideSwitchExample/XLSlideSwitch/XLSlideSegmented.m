@@ -41,7 +41,6 @@ static const CGFloat ItemMaxScale = 1.1;
     [self addSubview:[UIView new]];
     
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    layout.minimumLineSpacing = ItemMargin;
     layout.sectionInset = UIEdgeInsetsMake(0, ItemMargin, 0, ItemMargin);
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     
@@ -126,6 +125,11 @@ static const CGFloat ItemMaxScale = 1.1;
     [self updateItem:progress];
 }
 
+- (void)setCustomMargin:(CGFloat)customMargin {
+    _customMargin = customMargin;
+    [_collectionView reloadData];
+}
+
 #pragma mark -
 #pragma mark 执行阴影过渡动画
 //更新阴影位置
@@ -176,6 +180,20 @@ static const CGFloat ItemMaxScale = 1.1;
 
 #pragma mark -
 #pragma mark CollectionViewDelegate
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+    if (_customMargin) {
+        return _customMargin;
+    }
+    return ItemMargin;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+    if (_customMargin) {
+        return _customMargin;
+    }
+    return ItemMargin;
+}
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return _titles.count;

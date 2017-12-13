@@ -27,6 +27,11 @@
  */
 @property (nonatomic, strong) UIColor *tintColor;
 /**
+ * segment水平缩进
+ */
+@property (nonatomic, assign) NSInteger horizontalInset;
+
+/**
  代理方法
  */
 @property (nonatomic, weak) id <XLSlideSwitchDelegate>delegate;

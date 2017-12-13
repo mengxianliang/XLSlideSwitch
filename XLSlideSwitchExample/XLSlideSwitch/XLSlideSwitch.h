@@ -36,6 +36,11 @@
  */
 @property (nonatomic, assign) BOOL hideShadow;
 /**
+ * 用户自定义标题间距
+ */
+@property (nonatomic, assign) CGFloat customMargin;
+
+/**
  * 代理方法
  */
 @property (nonatomic, weak) id <XLSlideSwitchDelegate>delegate;

@@ -36,6 +36,8 @@
     _slideSwitch = [[XLSegmentedSlideSwitch alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 64) Titles:titles viewControllers:viewControllers];
     _slideSwitch.delegate = self;
     _slideSwitch.tintColor = self.navigationController.navigationBar.tintColor;
+    //左右水平缩进
+    _slideSwitch.horizontalInset = 50;
     [_slideSwitch showInViewController:self];
 }
 

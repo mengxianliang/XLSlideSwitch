@@ -35,4 +35,9 @@
 //忽略动画
 @property (nonatomic, assign) BOOL ignoreAnimation;
 
+/**
+ * 用户自定义标题间距
+ */
+@property (nonatomic, assign) CGFloat customMargin;
+
 @end

@@ -89,6 +89,12 @@ static const CGFloat SegmentHeight = 40.0f;
     [self switchToIndex:_selectedIndex];
 }
 
+- (void)setHorizontalInset:(NSInteger)horizontalInset {
+    CGFloat marginY = 5;
+    CGFloat marginX = horizontalInset;
+    _segment.frame = CGRectMake(marginX, marginY, self.bounds.size.width - 2*marginX, SegmentHeight - marginY*2);
+}
+
 #pragma mark -
 #pragma mark SlideSegmentDelegate
 

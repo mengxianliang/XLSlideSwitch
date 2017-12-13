@@ -42,6 +42,8 @@
     //设置按钮选中和未选中状态的标题颜色
     _slideSwitch.itemSelectedColor = self.navigationController.navigationBar.tintColor;
     _slideSwitch.itemNormalColor = [UIColor darkGrayColor];
+    //标题横向间距
+    _slideSwitch.customMargin = 30;
     //显示方法
     [_slideSwitch showInViewController:self];
 }
