@@ -69,7 +69,7 @@ _slideSwitch.horizontalInset = 50;
 ```
 <img src="https://github.com/mengxianliang/XLSlideSwitch/blob/master/GIF/4.png" width=300 height=229 />
 
-2、设置更多按钮
+4、设置更多按钮
 ```objc
 _slideSwitch.moreButton = [self moreButton];
 ```
@@ -83,6 +83,11 @@ _slideSwitch.moreButton = [self moreButton];
 ```
 <img src="https://github.com/mengxianliang/XLSlideSwitch/blob/master/GIF/5.png" width=300 height=229 />
 
+5、手动设置选中位置
+```objc
+_slideSwitch.selectedIndex = 3;
+```
+<img src="https://github.com/mengxianliang/XLSlideSwitch/blob/master/GIF/6.gif" width=300 height=229 />
 
 
 ### 个人开发过的UI工具集合 [XLUIKit](https://github.com/mengxianliang/XLUIKit)
