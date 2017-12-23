@@ -12,8 +12,7 @@
 
 #import "XLSlideSwitch.h"
 
-@interface SlideSwitchExample2 ()<XLSlideSwitchDelegate>
-{
+@interface SlideSwitchExample2 ()<XLSlideSwitchDelegate> {
     XLSlideSwitch *_slideSwitch;
 }
 

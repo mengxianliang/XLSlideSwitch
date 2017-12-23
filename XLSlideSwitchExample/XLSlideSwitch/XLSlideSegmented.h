@@ -40,4 +40,9 @@
  */
 @property (nonatomic, assign) CGFloat customTitleSpacing;
 
+/**
+ * 更多按钮
+ */
+@property (nonatomic, strong) UIButton *moreButton;
+
 @end

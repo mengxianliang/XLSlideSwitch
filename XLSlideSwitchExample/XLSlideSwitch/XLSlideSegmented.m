@@ -65,7 +65,14 @@ static const CGFloat ItemMaxScale = 1.1;
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    _collectionView.frame = self.bounds;
+    if (_moreButton) {
+        CGFloat buttonWidth = self.bounds.size.height;
+        CGFloat collectinWidth = self.bounds.size.width - buttonWidth;
+        _moreButton.frame = CGRectMake(collectinWidth, 0, buttonWidth, buttonWidth);
+        _collectionView.frame = CGRectMake(0, 0, collectinWidth, self.bounds.size.height);
+    }else{
+        _collectionView.frame = self.bounds;
+    }
     //如果标题过少 自动居中
     [_collectionView performBatchUpdates:nil completion:^(BOOL finished) {
         if (_collectionView.contentSize.width < _collectionView.bounds.size.width) {
@@ -129,6 +136,11 @@ static const CGFloat ItemMaxScale = 1.1;
     _customTitleSpacing = customTitleSpacing;
     [_collectionView reloadData];
 
+}
+
+- (void)setMoreButton:(UIButton *)moreButton {
+    _moreButton = moreButton;
+    [self addSubview:moreButton];
 }
 
 #pragma mark -

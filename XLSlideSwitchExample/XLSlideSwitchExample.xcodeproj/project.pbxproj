@@ -23,6 +23,7 @@
 		5E6724B61EB88E7600F4EF2E /* SegmentedSlideSwitchExample2.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6724B41EB88E7600F4EF2E /* SegmentedSlideSwitchExample2.m */; };
 		5E7C44B61ECD522000EA2372 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7C44B51ECD522000EA2372 /* TableViewController.m */; };
 		5E7C44B91ECD522E00EA2372 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E7C44B81ECD522E00EA2372 /* CollectionViewController.m */; };
+		5EBB5A171FEE27AD0029DD41 /* channelAdd.png in Resources */ = {isa = PBXBuildFile; fileRef = 5EBB5A161FEE27AD0029DD41 /* channelAdd.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		5E7C44B51ECD522000EA2372 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		5E7C44B71ECD522E00EA2372 /* CollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
 		5E7C44B81ECD522E00EA2372 /* CollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
+		5EBB5A161FEE27AD0029DD41 /* channelAdd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = channelAdd.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 		5E6724961EB88DD200F4EF2E /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				5EBB5A151FEE27A70029DD41 /* Resource */,
 				5E7C44BD1ECD525F00EA2372 /* ExampleViewController */,
 				5E7C44BE1ECD527500EA2372 /* Support */,
 			);
@@ -163,6 +166,14 @@
 				5E7C44B81ECD522E00EA2372 /* CollectionViewController.m */,
 			);
 			name = Support;
+			sourceTree = "<group>";
+		};
+		5EBB5A151FEE27A70029DD41 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				5EBB5A161FEE27AD0029DD41 /* channelAdd.png */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,6 +238,7 @@
 				5E67248F1EB88D8C00F4EF2E /* LaunchScreen.storyboard in Resources */,
 				5E67248C1EB88D8C00F4EF2E /* Assets.xcassets in Resources */,
 				5E67248A1EB88D8C00F4EF2E /* Main.storyboard in Resources */,
+				5EBB5A171FEE27AD0029DD41 /* channelAdd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

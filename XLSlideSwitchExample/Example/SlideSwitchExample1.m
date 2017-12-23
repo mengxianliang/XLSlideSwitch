@@ -44,8 +44,17 @@
     _slideSwitch.itemNormalColor = [UIColor darkGrayColor];
     //标题横向间距
     _slideSwitch.customTitleSpacing = 30;
+    //更多按钮
+    _slideSwitch.moreButton = [self moreButton];
     //显示方法
     [_slideSwitch showInViewController:self];
+}
+
+- (UIButton *)moreButton {
+    UIButton *button = [[UIButton alloc] init];
+    [button setImage:[UIImage imageNamed:@"channelAdd"] forState:UIControlStateNormal];
+    [button setImageEdgeInsets:UIEdgeInsetsMake(8, 8, 8, 8)];
+    return button;
 }
 
 #pragma mark -

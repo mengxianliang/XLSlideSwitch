@@ -108,6 +108,10 @@ static const CGFloat SegmentHeight = 40.0f;
     _segment.customTitleSpacing = customTitleSpacing;
 }
 
+- (void)setMoreButton:(UIButton *)moreButton {
+    _segment.moreButton = moreButton;
+}
+
 #pragma mark -
 #pragma mark SlideSegmentDelegate
 

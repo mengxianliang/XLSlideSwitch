@@ -41,6 +41,11 @@
 @property (nonatomic, assign) CGFloat customTitleSpacing;
 
 /**
+ * 更多按钮
+ */
+@property (nonatomic, strong) UIButton *moreButton;
+
+/**
  * 代理方法
  */
 @property (nonatomic, weak) id <XLSlideSwitchDelegate>delegate;
