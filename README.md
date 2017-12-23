@@ -69,6 +69,20 @@ _slideSwitch.horizontalInset = 50;
 ```
 <img src="https://github.com/mengxianliang/XLSlideSwitch/blob/master/GIF/4.png" width=300 height=229 />
 
+2、设置更多按钮
+```objc
+_slideSwitch.moreButton = [self moreButton];
+```
+```objc
+- (UIButton *)moreButton {
+    UIButton *button = [[UIButton alloc] init];
+    [button setImage:[UIImage imageNamed:@"channelAdd"] forState:UIControlStateNormal];
+    [button setImageEdgeInsets:UIEdgeInsetsMake(8, 8, 8, 8)];
+    return button;
+}
+```
+<img src="https://github.com/mengxianliang/XLSlideSwitch/blob/master/GIF/5.png" width=300 height=229 />
+
 
 
 ### 个人开发过的UI工具集合 [XLUIKit](https://github.com/mengxianliang/XLUIKit)
