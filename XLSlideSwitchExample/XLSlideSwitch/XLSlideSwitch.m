@@ -93,9 +93,11 @@ static const CGFloat SegmentHeight = 40.0f;
 }
 
 - (void)setSelectedIndex:(NSInteger)selectedIndex {
+    if (selectedIndex >= _titles.count) {return;}
     _selectedIndex = selectedIndex;
-    _segment.selectedIndex = _selectedIndex;
     [self switchToIndex:_selectedIndex];
+    _segment.selectedIndex = _selectedIndex;
+    _segment.ignoreAnimation = true;
 }
 
 - (void)setHideShadow:(BOOL)hideShadow {
@@ -155,7 +157,6 @@ static const CGFloat SegmentHeight = 40.0f;
 #pragma mark -
 #pragma mark ScrollViewDelegate
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-//    if (!scrollView.isDragging) {return;}
     if (scrollView.contentOffset.x == scrollView.bounds.size.width) {return;}
     CGFloat progress = scrollView.contentOffset.x/scrollView.bounds.size.width;
     _segment.progress = progress;
