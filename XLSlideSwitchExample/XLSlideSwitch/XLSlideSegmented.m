@@ -57,10 +57,7 @@ static const CGFloat ItemMaxScale = 1.1;
     
     _bottomLine = [UIView new];
     _bottomLine.backgroundColor = [UIColor colorWithRed:204.0f/255.0f green:204.0f/255.0f blue:204.0f/255.0f alpha:1];
-    _bottomLine.frame = CGRectMake(0, _collectionView.bounds.size.height - 0.5, self.bounds.size.width, 0.5);
     [self addSubview:_bottomLine];
-    
-    
 }
 
 - (void)layoutSubviews {
@@ -84,6 +81,7 @@ static const CGFloat ItemMaxScale = 1.1;
     _shadow.backgroundColor = _itemSelectedColor;
     self.selectedIndex = _selectedIndex;
     _shadow.hidden = _hideShadow;
+    _bottomLine.frame = CGRectMake(0, self.bounds.size.height - 0.5, self.bounds.size.width, 0.5);
 }
 
 #pragma mark -
