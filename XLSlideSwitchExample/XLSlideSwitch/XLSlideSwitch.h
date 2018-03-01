@@ -36,6 +36,10 @@
  */
 @property (nonatomic, assign) BOOL hideShadow;
 /**
+ 隐藏底部分割线
+ */
+@property (nonatomic, assign) BOOL hideBottomLine;
+/**
  * 用户自定义标题间距
  */
 @property (nonatomic, assign) CGFloat customTitleSpacing;

@@ -25,7 +25,7 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     CGFloat margin = 10.0f;
-    CGFloat itemWidth = (self.view.bounds.size.width - 4*margin)/3.0f;
+    CGFloat itemWidth = (self.view.bounds.size.width - 4*margin - 1)/3.0f;
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.itemSize = CGSizeMake(itemWidth, itemWidth);
     layout.sectionInset = UIEdgeInsetsMake(margin, margin, margin, margin);

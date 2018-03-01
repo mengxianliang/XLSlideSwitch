@@ -17,10 +17,11 @@ static const CGFloat ItemFontSize = 17.0f;
 static const CGFloat ItemMaxScale = 1.1;
 
 @interface XLSlideSegmented ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>{
+    //标题Collectionview
     UICollectionView *_collectionView;
-    
+    //底部分割线
     UIView *_bottomLine;
-    
+    //标题底部阴影
     UIView *_shadow;
 }
 @end
@@ -82,6 +83,7 @@ static const CGFloat ItemMaxScale = 1.1;
     self.selectedIndex = _selectedIndex;
     _shadow.hidden = _hideShadow;
     _bottomLine.frame = CGRectMake(0, self.bounds.size.height - 0.5, self.bounds.size.width, 0.5);
+    _bottomLine.hidden = _hideBottomLine;
 }
 
 #pragma mark -
@@ -115,8 +117,8 @@ static const CGFloat ItemMaxScale = 1.1;
 - (void)setShowTitlesInNavBar:(BOOL)showTitlesInNavBar {
     _showTitlesInNavBar = showTitlesInNavBar;
     self.backgroundColor = [UIColor clearColor];
-    _bottomLine.hidden = true;
-    _shadow.hidden = true;
+    _hideBottomLine = true;
+    _hideShadow = true;
 }
 
 //更新阴影位置

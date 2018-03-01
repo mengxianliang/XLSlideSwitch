@@ -64,7 +64,7 @@ static const CGFloat SegmentHeight = 40.0f;
     [navigationController.topViewController addChildViewController:_pageVC];
     navigationController.topViewController.navigationItem.titleView = _segment;
     _pageVC.view.frame = self.bounds;
-    _segment.backgroundColor = [UIColor clearColor];
+    _segment.showTitlesInNavBar = true;
 }
 
 - (void)willMoveToSuperview:(UIView *)newSuperview {
@@ -103,6 +103,11 @@ static const CGFloat SegmentHeight = 40.0f;
 - (void)setHideShadow:(BOOL)hideShadow {
     _hideShadow = hideShadow;
     _segment.hideShadow = _hideShadow;
+}
+
+- (void)setHideBottomLine:(BOOL)hideBottomLine {
+    _hideBottomLine = hideBottomLine;
+    _segment.hideBottomLine = hideBottomLine;
 }
 
 - (void)setCustomTitleSpacing:(CGFloat)customTitleSpacing {
