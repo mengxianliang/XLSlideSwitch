@@ -1,3 +1,6 @@
+
+# 当前为老版本，新版本请移步[XLPageViewController](https://github.com/mengxianliang/XLPageViewController)
+
 # XLSlideSwitch
 
 ### 显示效果：
