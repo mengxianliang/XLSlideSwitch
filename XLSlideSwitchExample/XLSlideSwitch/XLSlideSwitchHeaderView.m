@@ -6,7 +6,7 @@
 //  Copyright © 2017年 MengXianLiang. All rights reserved.
 //
 
-#import "XLSlideSegmented.h"
+#import "XLSlideSwitchHeaderView.h"
 #import "XLSlideSegmentedItem.h"
 
 //item间隔
@@ -16,17 +16,18 @@ static const CGFloat ItemFontSize = 17.0f;
 //最大放大倍数
 static const CGFloat ItemMaxScale = 1.1;
 
-@interface XLSlideSegmented ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>{
-    //标题Collectionview
-    UICollectionView *_collectionView;
-    //底部分割线
-    UIView *_bottomLine;
-    //标题底部阴影
-    UIView *_shadow;
-}
+@interface XLSlideSwitchHeaderView ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+
+//标题Collectionview
+@property (nonatomic, strong) UICollectionView *collectionView;
+//底部分割线
+@property (nonatomic, strong) UIView *bottomLine;
+//标题底部阴影
+@property (nonatomic, strong) UIView *shadow;
+
 @end
 
-@implementation XLSlideSegmented
+@implementation XLSlideSwitchHeaderView
 
 - (instancetype)init {
     if (self = [super init]) {

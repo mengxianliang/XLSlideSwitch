@@ -11,9 +11,10 @@
 #import "CollectionViewController.h"
 #import "XLSegmentedSlideSwitch.h"
 
-@interface SegmentedSlideSwitchExample2 ()<XLSlideSwitchDelegate> {
-    XLSegmentedSlideSwitch *_slideSwitch;
-}
+@interface SegmentedSlideSwitchExample2 ()<XLSlideSwitchDelegate>
+
+@property (nonatomic, strong) XLSegmentedSlideSwitch *slideSwitch;
+
 @end
 
 @implementation SegmentedSlideSwitchExample2

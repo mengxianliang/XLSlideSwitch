@@ -12,6 +12,4 @@
 
 @property (nonatomic, copy) UILabel *textLabel;
 
-
-
 @end

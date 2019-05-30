@@ -14,7 +14,7 @@
 
 @end
 
-@interface XLSlideSegmented : UIView
+@interface XLSlideSwitchHeaderView : UIView
 
 @property (nonatomic, assign) NSInteger selectedIndex;
 
@@ -30,7 +30,7 @@
 //隐藏底部分割线
 @property (nonatomic, assign) BOOL hideBottomLine;
 //代理
-@property (nonatomic, weak) id<XLSlideSegmentDelegate>delegate;
+@property (nonatomic, weak) id <XLSlideSegmentDelegate> delegate;
 //动画执行进度
 @property (nonatomic, assign) CGFloat progress;
 //忽略动画
@@ -39,7 +39,6 @@
  * 用户自定义标题间距
  */
 @property (nonatomic, assign) CGFloat customTitleSpacing;
-
 /**
  * 更多按钮
  */

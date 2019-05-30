@@ -7,41 +7,37 @@
 //
 
 #import "XLSlideSwitch.h"
-#import "XLSlideSegmented.h"
 
 //顶部ScrollView高度
 static const CGFloat SegmentHeight = 40.0f;
 
 @interface XLSlideSwitch ()<UIPageViewControllerDelegate,UIPageViewControllerDataSource,XLSlideSegmentDelegate,UIScrollViewDelegate> {
-    
-    XLSlideSegmented *_segment;
-    
-    UIPageViewController *_pageVC;
+    BOOL _showHeaderViewInNaviagtionBar;
 }
+
+@property (nonatomic, strong) UIPageViewController *pageVC;
+
 @end
 
 @implementation XLSlideSwitch
 
-- (instancetype)initWithFrame:(CGRect)frame Titles:(NSArray <NSString *>*)titles viewControllers:(NSArray <UIViewController *>*)viewControllers{
-    if (self = [super initWithFrame:frame]) {
+- (instancetype)init {
+    if (self = [super init]) {
         [self buildUI];
-        self.titles = titles;
-        self.viewControllers = viewControllers;
     }
     return self;
 }
 
 - (void)buildUI {
     [self addSubview:[UIView new]];
-    //添加分段选择器
-    _segment = [[XLSlideSegmented alloc] init];
-    _segment.frame = CGRectMake(0, 0, self.bounds.size.width, SegmentHeight);
-    _segment.delegate = self;
-    [self addSubview:_segment];
+    
+    //添加标题栏
+    _headerView = [[XLSlideSwitchHeaderView alloc] init];
+    _headerView.delegate = self;
+    [self addSubview:_headerView];
     
     //添加分页滚动视图控制器
     _pageVC = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
-    _pageVC.view.frame = CGRectMake(0, SegmentHeight, self.bounds.size.width, self.bounds.size.height - SegmentHeight);
     _pageVC.delegate = self;
     _pageVC.dataSource = self;
     [self addSubview:_pageVC.view];
@@ -54,6 +50,12 @@ static const CGFloat SegmentHeight = 40.0f;
     }
 }
 
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    _headerView.frame = CGRectMake(0, 0, self.bounds.size.width, SegmentHeight);
+    _pageVC.view.frame = CGRectMake(0, SegmentHeight, self.bounds.size.width, self.bounds.size.height - SegmentHeight);
+}
+
 - (void)showInViewController:(UIViewController *)viewController {
     [viewController addChildViewController:_pageVC];
     [viewController.view addSubview:self];
@@ -62,9 +64,10 @@ static const CGFloat SegmentHeight = 40.0f;
 - (void)showInNavigationController:(UINavigationController *)navigationController {
     [navigationController.topViewController.view addSubview:self];
     [navigationController.topViewController addChildViewController:_pageVC];
-    navigationController.topViewController.navigationItem.titleView = _segment;
+    navigationController.topViewController.navigationItem.titleView = _headerView;
     _pageVC.view.frame = self.bounds;
-    _segment.showTitlesInNavBar = true;
+    _headerView.showTitlesInNavBar = true;
+    _showHeaderViewInNaviagtionBar = true;
 }
 
 - (void)willMoveToSuperview:(UIView *)newSuperview {
@@ -81,47 +84,27 @@ static const CGFloat SegmentHeight = 40.0f;
 
 - (void)setTitles:(NSArray *)titles {
     _titles = titles;
-    _segment.titles = titles;
+    _headerView.titles = titles;
 }
 
 - (void)setItemSelectedColor:(UIColor *)itemSelectedColor {
-    _segment.itemSelectedColor = itemSelectedColor;
+    _headerView.itemSelectedColor = itemSelectedColor;
 }
 
 - (void)setItemNormalColor:(UIColor *)itemNormalColor {
-    _segment.itemNormalColor = itemNormalColor;
+    _headerView.itemNormalColor = itemNormalColor;
 }
 
 - (void)setSelectedIndex:(NSInteger)selectedIndex {
     if (selectedIndex >= _titles.count) {return;}
     _selectedIndex = selectedIndex;
     [self switchToIndex:_selectedIndex];
-    _segment.selectedIndex = _selectedIndex;
-    _segment.ignoreAnimation = true;
-}
-
-- (void)setHideShadow:(BOOL)hideShadow {
-    _hideShadow = hideShadow;
-    _segment.hideShadow = _hideShadow;
-}
-
-- (void)setHideBottomLine:(BOOL)hideBottomLine {
-    _hideBottomLine = hideBottomLine;
-    _segment.hideBottomLine = hideBottomLine;
-}
-
-- (void)setCustomTitleSpacing:(CGFloat)customTitleSpacing {
-    _customTitleSpacing = customTitleSpacing;
-    _segment.customTitleSpacing = customTitleSpacing;
-}
-
-- (void)setMoreButton:(UIButton *)moreButton {
-    _segment.moreButton = moreButton;
+    _headerView.selectedIndex = _selectedIndex;
+    _headerView.ignoreAnimation = true;
 }
 
 #pragma mark -
 #pragma mark SlideSegmentDelegate
-
 - (void)slideSegmentDidSelectedAtIndex:(NSInteger)index {
     if (index == _selectedIndex) {return;}
     [self switchToIndex:index];
@@ -129,7 +112,6 @@ static const CGFloat SegmentHeight = 40.0f;
 
 #pragma mark -
 #pragma mark UIPageViewControllerDelegate&DataSource
-
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
     UIViewController *vc;
     if (_selectedIndex + 1 < _viewControllers.count) {
@@ -151,7 +133,7 @@ static const CGFloat SegmentHeight = 40.0f;
 
 - (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray<UIViewController *> *)previousViewControllers transitionCompleted:(BOOL)completed {
     _selectedIndex = [_viewControllers indexOfObject:pageViewController.viewControllers.firstObject];
-    _segment.selectedIndex = _selectedIndex;
+    _headerView.selectedIndex = _selectedIndex;
     [self performSwitchDelegateMethod];
 }
 
@@ -164,16 +146,15 @@ static const CGFloat SegmentHeight = 40.0f;
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     if (scrollView.contentOffset.x == scrollView.bounds.size.width) {return;}
     CGFloat progress = scrollView.contentOffset.x/scrollView.bounds.size.width;
-    _segment.progress = progress;
+    _headerView.progress = progress;
 }
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
-    _segment.ignoreAnimation = false;
+    _headerView.ignoreAnimation = false;
 }
 
 #pragma mark -
 #pragma mark 其他方法
-
 - (void)switchToIndex:(NSInteger)index {
     __weak __typeof(self)weekSelf = self;
     [_pageVC setViewControllers:@[_viewControllers[index]] direction:index<_selectedIndex animated:YES completion:^(BOOL finished) {

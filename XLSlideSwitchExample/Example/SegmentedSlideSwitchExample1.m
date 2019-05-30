@@ -12,9 +12,10 @@
 
 #import "XLSegmentedSlideSwitch.h"
 
-@interface SegmentedSlideSwitchExample1 ()<XLSlideSwitchDelegate> {
-    XLSegmentedSlideSwitch *_slideSwitch;
-}
+@interface SegmentedSlideSwitchExample1 ()<XLSlideSwitchDelegate>
+
+@property (nonatomic, strong) XLSegmentedSlideSwitch *slideSwitch;
+
 @end
 
 @implementation SegmentedSlideSwitchExample1
@@ -25,6 +26,7 @@
 }
 
 - (void)buildUI {
+    
     self.view.backgroundColor = [UIColor whiteColor];
     
     NSMutableArray *viewControllers = [NSMutableArray new];

@@ -9,12 +9,12 @@
 #import "SlideSwitchExample1.h"
 #import "TableViewController.h"
 #import "CollectionViewController.h"
-
 #import "XLSlideSwitch.h"
 
-@interface SlideSwitchExample1 ()<XLSlideSwitchDelegate> {
-    XLSlideSwitch *_slideSwitch;
-}
+@interface SlideSwitchExample1 ()<XLSlideSwitchDelegate>
+
+@property (nonatomic, strong) XLSlideSwitch *slideSwitch;
+
 @end
 
 @implementation SlideSwitchExample1
@@ -25,6 +25,7 @@
 }
 
 - (void)buildUI {
+    
     self.view.backgroundColor = [UIColor whiteColor];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Next" style:UIBarButtonItemStylePlain target:self action:@selector(showNextView)];
@@ -38,16 +39,19 @@
         [viewControllers addObject:vc];
     }
     //创建滚动视图
-    _slideSwitch = [[XLSlideSwitch alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 64) Titles:titles viewControllers:viewControllers];
+    _slideSwitch = [[XLSlideSwitch alloc] init];
+    _slideSwitch.viewControllers = viewControllers;
+    _slideSwitch.titles = titles;
+    _slideSwitch.frame = CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 64);
     //设置代理
     _slideSwitch.delegate = self;
     //设置按钮选中和未选中状态的标题颜色
-    _slideSwitch.itemSelectedColor = self.navigationController.navigationBar.tintColor;
-    _slideSwitch.itemNormalColor = [UIColor darkGrayColor];
+    _slideSwitch.headerView.itemSelectedColor = self.navigationController.navigationBar.tintColor;
+    _slideSwitch.headerView.itemNormalColor = [UIColor darkGrayColor];
     //标题横向间距
-    _slideSwitch.customTitleSpacing = 30;
+    _slideSwitch.headerView.customTitleSpacing = 30;
     //更多按钮
-    _slideSwitch.moreButton = [self moreButton];
+    _slideSwitch.headerView.moreButton = [self moreButton];
     //显示方法
     [_slideSwitch showInViewController:self];
 }

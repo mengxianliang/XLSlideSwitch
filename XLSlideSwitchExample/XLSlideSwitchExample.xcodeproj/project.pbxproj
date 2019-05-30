@@ -14,7 +14,7 @@
 		5E67248C1EB88D8C00F4EF2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E67248B1EB88D8C00F4EF2E /* Assets.xcassets */; };
 		5E67248F1EB88D8C00F4EF2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E67248D1EB88D8C00F4EF2E /* LaunchScreen.storyboard */; };
 		5E6724A11EB88DED00F4EF2E /* XLSegmentedSlideSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6724991EB88DED00F4EF2E /* XLSegmentedSlideSwitch.m */; };
-		5E6724A21EB88DED00F4EF2E /* XLSlideSegmented.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E67249B1EB88DED00F4EF2E /* XLSlideSegmented.m */; };
+		5E6724A21EB88DED00F4EF2E /* XLSlideSwitchHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E67249B1EB88DED00F4EF2E /* XLSlideSwitchHeaderView.m */; };
 		5E6724A31EB88DED00F4EF2E /* XLSlideSegmentedItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E67249D1EB88DED00F4EF2E /* XLSlideSegmentedItem.m */; };
 		5E6724A41EB88DED00F4EF2E /* XLSlideSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E67249F1EB88DED00F4EF2E /* XLSlideSwitch.m */; };
 		5E6724A71EB88E1500F4EF2E /* SlideSwitchExample1.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6724A61EB88E1500F4EF2E /* SlideSwitchExample1.m */; };
@@ -39,8 +39,8 @@
 		5E6724901EB88D8C00F4EF2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E6724981EB88DED00F4EF2E /* XLSegmentedSlideSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLSegmentedSlideSwitch.h; sourceTree = "<group>"; };
 		5E6724991EB88DED00F4EF2E /* XLSegmentedSlideSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLSegmentedSlideSwitch.m; sourceTree = "<group>"; };
-		5E67249A1EB88DED00F4EF2E /* XLSlideSegmented.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLSlideSegmented.h; sourceTree = "<group>"; };
-		5E67249B1EB88DED00F4EF2E /* XLSlideSegmented.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLSlideSegmented.m; sourceTree = "<group>"; };
+		5E67249A1EB88DED00F4EF2E /* XLSlideSwitchHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLSlideSwitchHeaderView.h; sourceTree = "<group>"; };
+		5E67249B1EB88DED00F4EF2E /* XLSlideSwitchHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLSlideSwitchHeaderView.m; sourceTree = "<group>"; };
 		5E67249C1EB88DED00F4EF2E /* XLSlideSegmentedItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLSlideSegmentedItem.h; sourceTree = "<group>"; };
 		5E67249D1EB88DED00F4EF2E /* XLSlideSegmentedItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLSlideSegmentedItem.m; sourceTree = "<group>"; };
 		5E67249E1EB88DED00F4EF2E /* XLSlideSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLSlideSwitch.h; sourceTree = "<group>"; };
@@ -131,13 +131,13 @@
 			children = (
 				5E67249E1EB88DED00F4EF2E /* XLSlideSwitch.h */,
 				5E67249F1EB88DED00F4EF2E /* XLSlideSwitch.m */,
-				5E6724981EB88DED00F4EF2E /* XLSegmentedSlideSwitch.h */,
-				5E6724991EB88DED00F4EF2E /* XLSegmentedSlideSwitch.m */,
 				5E6724A01EB88DED00F4EF2E /* XLSlideSwitchDelegate.h */,
-				5E67249A1EB88DED00F4EF2E /* XLSlideSegmented.h */,
-				5E67249B1EB88DED00F4EF2E /* XLSlideSegmented.m */,
+				5E67249A1EB88DED00F4EF2E /* XLSlideSwitchHeaderView.h */,
+				5E67249B1EB88DED00F4EF2E /* XLSlideSwitchHeaderView.m */,
 				5E67249C1EB88DED00F4EF2E /* XLSlideSegmentedItem.h */,
 				5E67249D1EB88DED00F4EF2E /* XLSlideSegmentedItem.m */,
+				5E6724981EB88DED00F4EF2E /* XLSegmentedSlideSwitch.h */,
+				5E6724991EB88DED00F4EF2E /* XLSegmentedSlideSwitch.m */,
 			);
 			path = XLSlideSwitch;
 			sourceTree = "<group>";
@@ -207,7 +207,7 @@
 				TargetAttributes = {
 					5E67247B1EB88D8C00F4EF2E = {
 						CreatedOnToolsVersion = 8.3.1;
-						DevelopmentTeam = X496RVQDTB;
+						DevelopmentTeam = C78VF44FUP;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -217,6 +217,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -260,7 +261,7 @@
 				5E6724A41EB88DED00F4EF2E /* XLSlideSwitch.m in Sources */,
 				5E6724AA1EB88E2200F4EF2E /* SlideSwitchExample2.m in Sources */,
 				5E6724A11EB88DED00F4EF2E /* XLSegmentedSlideSwitch.m in Sources */,
-				5E6724A21EB88DED00F4EF2E /* XLSlideSegmented.m in Sources */,
+				5E6724A21EB88DED00F4EF2E /* XLSlideSwitchHeaderView.m in Sources */,
 				5E6724811EB88D8C00F4EF2E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -385,16 +386,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: xianliang meng (79SX5888C3)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: CHEN LI (L89D9YKKEN)";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = X496RVQDTB;
+				DEVELOPMENT_TEAM = C78VF44FUP;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/XLSlideSwitchExample/PrefixHeader.pch";
 				INFOPLIST_FILE = XLSlideSwitchExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = mxl.XLSlideSwitchExample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jwzt.XLSlideSwitchExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = mxlDev;
+				PROVISIONING_PROFILE_SPECIFIER = jwztTeamDevelop;
 			};
 			name = Debug;
 		};
@@ -402,16 +403,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: xianliang meng (79SX5888C3)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: CHEN LI (L89D9YKKEN)";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = X496RVQDTB;
+				DEVELOPMENT_TEAM = C78VF44FUP;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/XLSlideSwitchExample/PrefixHeader.pch";
 				INFOPLIST_FILE = XLSlideSwitchExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = mxl.XLSlideSwitchExample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jwzt.XLSlideSwitchExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = mxlDev;
+				PROVISIONING_PROFILE_SPECIFIER = jwztTeamDevelop;
 			};
 			name = Release;
 		};

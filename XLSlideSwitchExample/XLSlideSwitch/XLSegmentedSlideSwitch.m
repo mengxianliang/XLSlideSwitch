@@ -11,12 +11,12 @@
 //顶部ScrollView高度
 static const CGFloat SegmentHeight = 40.0f;
 
-@interface XLSegmentedSlideSwitch ()<UIPageViewControllerDelegate,UIPageViewControllerDataSource>{
-    
-    UISegmentedControl *_segment;
-    
-    UIPageViewController *_pageVC;
-}
+@interface XLSegmentedSlideSwitch ()<UIPageViewControllerDelegate,UIPageViewControllerDataSource>
+
+@property (nonatomic, strong) UISegmentedControl *segment;
+
+@property (nonatomic, strong) UIPageViewController *pageVC;
+
 @end
 
 @implementation XLSegmentedSlideSwitch

@@ -12,9 +12,9 @@
 
 #import "XLSlideSwitch.h"
 
-@interface SlideSwitchExample2 ()<XLSlideSwitchDelegate> {
-    XLSlideSwitch *_slideSwitch;
-}
+@interface SlideSwitchExample2 ()<XLSlideSwitchDelegate>
+
+@property (nonatomic, strong) XLSlideSwitch *slideSwitch;
 
 @end
 
@@ -37,13 +37,16 @@
         [viewControllers addObject:vc];
     }
     //创建滚动视图
-    _slideSwitch = [[XLSlideSwitch alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 64) Titles:titles viewControllers:viewControllers];
+    _slideSwitch = [[XLSlideSwitch alloc] init];
+    _slideSwitch.frame = CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 64);
+    _slideSwitch.titles = titles;
+    _slideSwitch.viewControllers = viewControllers;
     //设置代理
     _slideSwitch.delegate = self;
     //设置按钮选中和未选中状态的标题颜色
-    _slideSwitch.itemSelectedColor = self.navigationController.navigationBar.tintColor;
-    _slideSwitch.itemNormalColor = [UIColor darkGrayColor];
-    _slideSwitch.hideShadow = true;
+    _slideSwitch.headerView.itemSelectedColor = self.navigationController.navigationBar.tintColor;
+    _slideSwitch.headerView.itemNormalColor = [UIColor darkGrayColor];
+    _slideSwitch.headerView.hideShadow = false;
     //显示方法
     [_slideSwitch showInNavigationController:self.navigationController];
 }
